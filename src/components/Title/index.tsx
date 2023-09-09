@@ -17,3 +17,20 @@ export function TitleNavbar({ title, size }:TitleNavbarProps) {
         </Heading>
     )
 }
+
+interface TitleSectionProps {
+    title: string
+}
+
+export function TitleSection({ title }:TitleSectionProps) {
+    return(
+        <Heading
+            as="h2"
+            fontSize={"48px"}
+            fontWeight={400}
+            color={"offWhite"}
+        >
+            {title}
+        </Heading>
+    )
+}

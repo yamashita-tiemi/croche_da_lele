@@ -5,7 +5,7 @@ export const theme = extendTheme({
         offWhite: "#FEFFF5",
         turquesa: "#007786",
         purple: "#634C71",
-        lilas: "#A187B0"
+        lilac: "#A187B0"
     },
     styles: {
         global: {
