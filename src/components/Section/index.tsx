@@ -1,6 +1,27 @@
 import { Stack } from "@chakra-ui/react";
 import { TextIndex } from "../Text";
-import { TitleSection } from "../Title";
+import { ArticleIndexPrimary } from "../Article";
+
+export function SectionIndexPrimary() {
+    return(
+        <Stack
+            as="section"
+            backgroundImage={"/img_index.png"}
+            width={"100%"}
+            height={"710px"}
+            bgRepeat={"no-repeat"}
+            paddingX={12}
+            paddingTop={40}
+            justifyContent={"space-around"}
+        >
+            <ArticleIndexPrimary
+                text1={"Entre na trama da elegância com nossos crochês feitos à mão, onde cada ponto conta uma história única."}
+                text2={"Estilo que é costurado com fios de carinho: explore nossa coleção"}
+                text3={"Conheça nossa loja"}
+            ></ArticleIndexPrimary>
+        </Stack>
+    )
+}
 
 export function SectionIndexTerciaryLeft() {
     return(

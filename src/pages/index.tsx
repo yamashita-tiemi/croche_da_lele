@@ -1,5 +1,6 @@
-import { ArticleIndexPrimary, ArticleIndexSecundary, ArticleIndexTerciary, ArticleShop } from "@/components/Article";
+import { ArticleIndexSecundary, ArticleIndexTerciary, ArticleShop } from "@/components/Article";
 import { Navbar } from "@/components/Navbar";
+import { SectionIndexPrimary } from "@/components/Section";
 import { Stack } from "@chakra-ui/react";
 
 export default function Home() {
@@ -8,7 +9,7 @@ export default function Home() {
       spacing={0}
     >
       <Navbar></Navbar>
-      <ArticleIndexPrimary></ArticleIndexPrimary>
+      <SectionIndexPrimary></SectionIndexPrimary>
       <ArticleIndexSecundary></ArticleIndexSecundary>
       <ArticleIndexTerciary></ArticleIndexTerciary>
       <ArticleShop
