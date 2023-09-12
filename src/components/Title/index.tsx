@@ -29,6 +29,7 @@ export function TitleSection({ title }:TitleSectionProps) {
             fontSize={"48px"}
             fontWeight={400}
             color={"offWhite"}
+            textShadow={"4px 4px 15px rgba(0, 0, 0, 0.45)"}
         >
             {title}
         </Heading>

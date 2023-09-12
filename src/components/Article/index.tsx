@@ -2,6 +2,8 @@ import { HStack, Stack } from "@chakra-ui/react";
 import { TextIndex } from "../Text";
 import { TitleSection } from "../Title";
 import { CardSection } from "../Card";
+import { SectionIndexTerciaryLeft, SectionIndexTerciaryRight } from "../Section";
+import { Image } from "../Image";
 
 export function ArticleIndexPrimary() {
     return(
@@ -49,20 +51,22 @@ export function ArticleIndexSecundary() {
 export function ArticleIndexTerciary() {
     return(
         <Stack
-            bg={"puple"}
             as="article"
             width={"100%"}
-            height={"710px"}
+            // height={"710px"}
             align={"center"}
             paddingTop={32}
-            spacing={32}
+            paddingBottom={32}
+            spacing={16}
         >
             <TitleSection title={"Crie laços, entrelaçe paixão"} />
             <HStack
-                width={"100%"}
-                justifyContent={"space-around"}
+                width={"95%"}
+                justifyContent={"space-between"}
             >
-                
+                <SectionIndexTerciaryLeft></SectionIndexTerciaryLeft>
+                <Image src={"/index_3.png"} alt={""} width={378} height={474} w="30%"/>
+                <SectionIndexTerciaryRight></SectionIndexTerciaryRight>
             </HStack>
         </Stack>
     )
