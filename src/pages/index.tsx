@@ -11,9 +11,24 @@ export default function Home() {
       <ArticleIndexPrimary></ArticleIndexPrimary>
       <ArticleIndexSecundary></ArticleIndexSecundary>
       <ArticleIndexTerciary></ArticleIndexTerciary>
-      <ArticleShop title={"Nossas Bolsas"} color={"purple"} src1={"/bolsa1.png"} alt1={""} width1={120} height1={125} titleItem1={"Bolsa Redonda"} price1={"R$109,90"} src2={"/bolsa1.png"} alt2={""} width2={120} height2={125} titleItem2={"Bolsa Sun"} price2={"R$129,90"} src3={"/bolsa1.png"} alt3={""} width3={120} height3={125} titleItem3={"Bolsa Pink"} price3={"R$99,90"} colorCard={"lilac"}></ArticleShop>
-      <ArticleShop title={"Nossas Bolsas"} color={"lilac"} src1={"/bolsa1.png"} alt1={""} width1={120} height1={125} titleItem1={"Bolsa Redonda"} price1={"R$109,90"} src2={"/bolsa1.png"} alt2={""} width2={120} height2={125} titleItem2={"Bolsa Sun"} price2={"R$129,90"} src3={"/bolsa1.png"} alt3={""} width3={120} height3={125} titleItem3={"Bolsa Pink"} price3={"R$99,90"} colorCard={"purple"}></ArticleShop>
-      <ArticleShop title={"Nossas Bolsas"} color={"purple"} src1={"/bolsa1.png"} alt1={""} width1={120} height1={125} titleItem1={"Bolsa Redonda"} price1={"R$109,90"} src2={"/bolsa1.png"} alt2={""} width2={120} height2={125} titleItem2={"Bolsa Sun"} price2={"R$129,90"} src3={"/bolsa1.png"} alt3={""} width3={120} height3={125} titleItem3={"Bolsa Pink"} price3={"R$99,90"} colorCard={"lilac"}></ArticleShop>
+      <ArticleShop
+        title={"Nossas Bolsas"} color={"purple"} colorCard={"lilac"}
+        titleItem1={"Bolsa Redonda"} price1={"R$109,90"} src1={"/bolsa1.png"} alt1={""} width1={120} height1={125}
+        titleItem2={"Bolsa Sun"} price2={"R$129,90"} src2={"/bolsa1.png"} alt2={""} width2={120} height2={125} 
+        titleItem3={"Bolsa Pink"} price3={"R$99,90"} src3={"/bolsa1.png"} alt3={""} width3={120} height3={125} 
+      ></ArticleShop>
+      <ArticleShop
+        title={"Nossos Croppeds"} color={"lilac"} colorCard={"purple"}
+        titleItem1={"Cropped Básico"} price1={"R$59,90"} src1={"/bolsa1.png"} alt1={""} width1={120} height1={125}
+        titleItem2={"Cropped Summer"} price2={"R$69,90"} src2={"/bolsa1.png"} alt2={""} width2={120} height2={125} 
+        titleItem3={"Cropped Pink"} price3={"R$69,90"} src3={"/bolsa1.png"} alt3={""} width3={120} height3={125} 
+      ></ArticleShop>
+      <ArticleShop
+        title={"Nossos Vestidos"} color={"purple"} colorCard={"lilac"}
+        titleItem1={"Vestido Areia"} price1={"R$129,90"} src1={"/bolsa1.png"} alt1={""} width1={120} height1={125}
+        titleItem2={"Vestido Mermaid"} price2={"R$159,90"} src2={"/bolsa1.png"} alt2={""} width2={120} height2={125} 
+        titleItem3={"Vestido Pink"} price3={"R$119,90"} src3={"/bolsa1.png"} alt3={""} width3={120} height3={125} 
+      ></ArticleShop>
     </Stack>
   )
 }
