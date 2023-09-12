@@ -105,7 +105,7 @@ export function ArticleShop({ title, color, colorCard, src1, alt1, titleItem1, p
             bg={color}
             as="article"
             width={"100%"}
-            height={"710px"}
+            // height={"710px"}
             align={"center"}
             paddingTop={20}
             paddingBottom={32}

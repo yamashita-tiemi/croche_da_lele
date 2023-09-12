@@ -59,18 +59,22 @@ export function CardShop({ src, alt, title, text, width, height, color, w }:Card
         <Stack
             bg={color}
             width={"30%"}
-            height={"450px"}
+            minHeight={"400px"}
             boxShadow={"4px 4px 10px 0px rgba(0, 0, 0, 0.25)"}
-            paddingX={12}
-            paddingY={9}
+            padding={10}
             borderRadius={"16px"}
             align={"center"}
             justifyContent={"center"}
-            spacing={10}
+            spacing={12}
         >
             <ImageCard src={src} alt={alt} width={width} height={height} w={w}/>
-            <TitleSection title={title} size={"32px"} />
-            <TextCardShop text={text}></TextCardShop>
+            <Stack
+                spacing={8}
+                align={"center"}
+            >
+                <TitleSection title={title} size={"32px"}/>
+                <TextCardShop text={text}/>
+            </Stack>
         </Stack>
     )
 }
