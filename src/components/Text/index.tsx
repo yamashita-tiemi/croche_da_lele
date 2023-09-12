@@ -20,3 +20,23 @@ export function TextIndex({ text, size, color, w }: TextIndexProps) {
         </Heading>
     )
 }
+
+interface TextCardShopProps {
+    text: string
+    w?: string
+}
+
+export function TextCardShop({ text, w }: TextCardShopProps) {
+    return (
+        <Heading
+            as="p"
+            fontSize={"24px"}
+            fontWeight={400}
+            color={"offWhite"}
+            textShadow={"4px 4px 15px rgba(0, 0, 0, 0.45)"}
+            w={w}
+        >
+            {text}
+        </Heading>
+    )
+}

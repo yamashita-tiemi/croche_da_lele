@@ -20,13 +20,14 @@ export function TitleNavbar({ title, size }:TitleNavbarProps) {
 
 interface TitleSectionProps {
     title: string
+    size: string
 }
 
-export function TitleSection({ title }:TitleSectionProps) {
+export function TitleSection({ title, size }:TitleSectionProps) {
     return(
         <Heading
             as="h2"
-            fontSize={"48px"}
+            fontSize={size}
             fontWeight={400}
             color={"offWhite"}
             textShadow={"4px 4px 15px rgba(0, 0, 0, 0.45)"}
