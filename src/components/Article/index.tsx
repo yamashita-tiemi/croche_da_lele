@@ -15,6 +15,9 @@ export function ArticleIndexPrimary({ text1, text2, text3 }:ArticleIndexPrimaryP
     return(
         <Stack
             as="article"
+            paddingX={12}
+            justifyContent={"space-around"}
+            height={"70%"}
         >
             <TextIndex text={text1} size={"24px"} color={"offWhite"} w="25%" />
             <TextIndex text={text2} size={"40px"} color={"offWhite"} w="30%" />

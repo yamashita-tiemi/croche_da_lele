@@ -10,9 +10,8 @@ export function SectionIndexPrimary() {
             width={"100%"}
             height={"710px"}
             bgRepeat={"no-repeat"}
-            paddingX={12}
-            paddingTop={40}
-            justifyContent={"space-around"}
+            justifyContent={"flex-end"}
+            paddingBottom={10}
         >
             <ArticleIndexPrimary
                 text1={"Entre na trama da elegância com nossos crochês feitos à mão, onde cada ponto conta uma história única."}
@@ -58,6 +57,26 @@ export function SectionIndexTerciaryRight() {
             <TextIndex text={"Aconchego artesanal"} size={"32px"} color={"offWhite"} />
             <TextIndex text={"Do conforto à moda, nossos crochês dão vida a cada ponto, transformando o comum em extraordinário."} size={"32px"} color={"offWhite"} w="80%"/>
 
+        </Stack>
+    )
+}
+
+export function SectionContatoPrimary() {
+    return(
+        <Stack
+            as="section"
+            bg={"purple"}
+            width={"100%"}
+            height={"710px"}
+            paddingX={12}
+            paddingTop={40}
+            justifyContent={"space-around"}
+        >
+            <ArticleIndexPrimary
+                text1={"Feito com fios, amor e inspiração: vista a originalidade dos crochês que cativam olhares."}
+                text2={"Cada ponto é uma expressão, cada peça é uma história."}
+                text3={"Crochês feitos à mão..."}
+            ></ArticleIndexPrimary>
         </Stack>
     )
 }
