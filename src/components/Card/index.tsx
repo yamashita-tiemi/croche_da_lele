@@ -1,6 +1,6 @@
 import { Box, Stack } from "@chakra-ui/react"
 import { TitleNavbar } from "../Title"
-import { Image } from "../Image"
+import { ImageCard } from "../Image"
 
 interface CardSectionProps {
     src: string
@@ -8,9 +8,10 @@ interface CardSectionProps {
     width: number
     height: number
     title: string
+    w?: string
 }
 
-export function CardSection({ src, alt, title, width, height }:CardSectionProps) {
+export function CardSection({ src, alt, title, width, height, w }:CardSectionProps) {
     return (
         <Stack
             bg={"turquesa"}
@@ -24,7 +25,7 @@ export function CardSection({ src, alt, title, width, height }:CardSectionProps)
             justifyContent={"center"}
             spacing={10}
         >
-            <Image src={src} alt={alt} width={width} height={height} />
+            <ImageCard src={src} alt={alt} width={width} height={height} w={w}/>
             <TitleNavbar title={title} size={"36px"} />
 
             <Box

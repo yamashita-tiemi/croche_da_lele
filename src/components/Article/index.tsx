@@ -38,9 +38,31 @@ export function ArticleIndexSecundary() {
                 width={"100%"}
                 justifyContent={"space-around"}
             >
-                <CardSection src={"/bolsa1.png"} alt={""} title={"Bolsas"} width={120} height={125} />
-                <CardSection src={"/bolsa1.png"} alt={""} title={"Bolsas"} width={120} height={125} />
-                <CardSection src={"/bolsa1.png"} alt={""} title={"Bolsas"} width={120} height={125} />
+                <CardSection src={"/bolsa1.png"} alt={""} title={"Bolsas"} width={120} height={125} w="40%"/>
+                <CardSection src={"/bolsa2.jpeg"} alt={""} title={"Croppeds"} width={559} height={672} w="40%"/>
+                <CardSection src={"/bolsa1.png"} alt={""} title={"Vestidos"} width={120} height={125} />
+            </HStack>
+        </Stack>
+    )
+}
+
+export function ArticleIndexTerciary() {
+    return(
+        <Stack
+            bg={"puple"}
+            as="article"
+            width={"100%"}
+            height={"710px"}
+            align={"center"}
+            paddingTop={32}
+            spacing={32}
+        >
+            <TitleSection title={"Crie laços, entrelaçe paixão"} />
+            <HStack
+                width={"100%"}
+                justifyContent={"space-around"}
+            >
+                
             </HStack>
         </Stack>
     )
