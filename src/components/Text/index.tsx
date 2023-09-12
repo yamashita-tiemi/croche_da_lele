@@ -21,16 +21,17 @@ export function TextIndex({ text, size, color, w }: TextIndexProps) {
     )
 }
 
-interface TextCardShopProps {
+interface TextCardProps {
     text: string
+    size: string
     w?: string
 }
 
-export function TextCardShop({ text, w }: TextCardShopProps) {
+export function TextCard({ text, size, w }: TextCardProps) {
     return (
         <Heading
             as="p"
-            fontSize={"24px"}
+            fontSize={size}
             fontWeight={400}
             color={"offWhite"}
             textShadow={"4px 4px 15px rgba(0, 0, 0, 0.45)"}

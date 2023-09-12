@@ -4,6 +4,7 @@ import { ArticleIndexPrimary } from "../Article";
 import { Image } from "../Image";
 import { TitleSection } from "../Title";
 import { ButtonAccordion } from "../Button";
+import { CardContato } from "../Card";
 
 export function SectionIndexPrimary() {
     return (
@@ -100,13 +101,13 @@ export function SectionContatoSecondary() {
             as="section"
             spacing={0}
             minHeight={"710px"}
-            paddingTop={32}
         >
             <Stack
                 as="section"
                 width={"60%"}
                 align={"center"}
                 spacing={20}
+                paddingTop={32}
             >
                 <TitleSection title={"Perguntas Frequentes"} size={"40px"} />
 
@@ -138,9 +139,15 @@ export function SectionContatoSecondary() {
                 </Accordion>
             </Stack>
             <Stack
-                bg={"purple"}
+                as="section"
+                width={"40%"}
+                align={"center"}
+                spacing={20}
             >
+                <CardContato src={""} alt={""} width={0} height={0} title={"Telefone"} text={"(XX) X XXXX-XXXX"} obs="09h às 18h"></CardContato>
+                <CardContato src={""} alt={""} width={0} height={0} title={"Email"} text={"croche_da_lele@gmail.com"}></CardContato>
 
+                //adicionar os icons
             </Stack>
         </HStack>
     )
