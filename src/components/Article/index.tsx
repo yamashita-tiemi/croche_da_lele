@@ -9,9 +9,12 @@ interface ArticleIndexPrimaryProps {
     text1: string
     text2: string
     text3: string
+    w1?: string
+    w2?: string
+    w3?: string
 }
 
-export function ArticleIndexPrimary({ text1, text2, text3 }:ArticleIndexPrimaryProps) {
+export function ArticleIndexPrimary({ text1, text2, text3, w1, w2, w3 }:ArticleIndexPrimaryProps) {
     return(
         <Stack
             as="article"
@@ -19,9 +22,9 @@ export function ArticleIndexPrimary({ text1, text2, text3 }:ArticleIndexPrimaryP
             justifyContent={"space-around"}
             height={"70%"}
         >
-            <TextIndex text={text1} size={"24px"} color={"offWhite"} w="25%" />
-            <TextIndex text={text2} size={"40px"} color={"offWhite"} w="30%" />
-            <TextIndex text={text3} size={"32px"} color={"offWhite"} />
+            <TextIndex text={text1} size={"24px"} color={"offWhite"} w={w1} />
+            <TextIndex text={text2} size={"40px"} color={"offWhite"} w={w2} />
+            <TextIndex text={text3} size={"32px"} color={"offWhite"} w={w3}/>
         </Stack>
     )
 }
