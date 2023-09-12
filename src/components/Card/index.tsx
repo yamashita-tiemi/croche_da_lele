@@ -59,7 +59,7 @@ export function CardShop({ src, alt, title, text, width, height, color, w }:Card
         <Stack
             bg={color}
             width={"30%"}
-            height={"395px"}
+            height={"450px"}
             boxShadow={"4px 4px 10px 0px rgba(0, 0, 0, 0.25)"}
             paddingX={12}
             paddingY={9}
