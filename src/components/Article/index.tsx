@@ -114,7 +114,7 @@ export function ArticleShop({ title, color, colorCard, src1, alt1, titleItem1, p
             <TitleSection title={title} size={"48px"} />
 
             <HStack
-                width={"95%"}
+                width={"90%"}
                 justifyContent={"space-between"}
             >
                 <CardShop src={src1} alt={alt1} width={width1} height={height1} title={titleItem1} text={price1} color={colorCard} w={w1}></CardShop>

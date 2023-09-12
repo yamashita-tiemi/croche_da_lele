@@ -29,6 +29,8 @@ export default function Home() {
         titleItem2={"Vestido Mermaid"} price2={"R$159,90"} src2={"/bolsa1.png"} alt2={""} width2={120} height2={125} 
         titleItem3={"Vestido Pink"} price3={"R$119,90"} src3={"/bolsa1.png"} alt3={""} width3={120} height3={125} 
       ></ArticleShop>
+
+      //adicionar footer
     </Stack>
   )
 }
