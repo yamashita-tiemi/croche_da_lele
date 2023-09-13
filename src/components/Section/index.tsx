@@ -1,8 +1,11 @@
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, HStack, Stack } from "@chakra-ui/react";
+import NextLink from 'next/link'
+import { Accordion, Box, HStack, Input, InputGroup, InputLeftElement, InputRightElement, Link, Stack } from "@chakra-ui/react";
+// import { EmailIcon } from '@chakra-ui/icons'
+
 import { TextIndex } from "../Text";
 import { ArticleIndexPrimary } from "../Article";
 import { Image } from "../Image";
-import { TitleSection } from "../Title";
+import { TitleNavbar, TitleSection } from "../Title";
 import { ButtonAccordion } from "../Button";
 import { CardContato } from "../Card";
 
@@ -150,5 +153,74 @@ export function SectionContatoSecondary() {
                 //adicionar os icons
             </Stack>
         </HStack>
+    )
+}
+
+export function SectionLogin() {
+    return (
+        <Stack
+            as="section"
+            bg={"offWhite"}
+            width={"70%"}
+            spacing={32}
+            borderRadius={"16px"}
+            marginTop={20}
+            align={"center"}
+            paddingBottom={10}
+        >
+            <Box
+                bg={"purple"}
+                width={"100%"}
+                borderRadius={"16px 16px 0 0"}
+                align={"center"}
+            >
+                <Image src={"/logo_redonda.png"} alt={""} width={500} height={500} w="20%"/>
+            </Box>
+            <HStack
+                width={"90%"}
+                spacing={4}
+                justifyContent={"space-between"}
+            >
+                <Stack
+                    width={"45%"}
+                >
+                    <TextIndex text={"Email:"} size={"24px"} color={"#000"}/>
+                    <InputGroup>
+                        <InputLeftElement pointerEvents='none'>
+                            {/* <EmailIcon color='gray.300' /> */}
+                        </InputLeftElement>
+                        <Input type='email' placeholder='Digite o email' padding={6}/>
+                    </InputGroup>
+                </Stack>
+
+                <Stack
+                    width={"45%"}
+                >
+                    <TextIndex text={"Senha:"} size={"24px"} color={"#000"}/>
+                    <InputGroup>
+                        {/* <InputLeftElement
+                            pointerEvents='none'
+                            color='gray.300'
+                            fontSize='1.2em'
+                            children='$'
+                        /> */}
+                        <Input type='password' placeholder='Digite a senha' padding={6}/>
+                    </InputGroup>
+                </Stack>
+            </HStack>
+            <Box
+                as='button'
+                borderRadius={"16px"}
+                bg='turquesa'
+                color='offWhite'
+                w={"40%"}
+                padding={4}
+                fontSize={"32px"}
+            >
+                <Link as={NextLink} href='/admin'>
+                    <TitleNavbar title={"Login"} size={"32px"} />
+                </Link>
+            </Box>
+        </Stack>
     )
 }
