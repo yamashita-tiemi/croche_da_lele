@@ -1,5 +1,8 @@
 import NextLink from 'next/link'
 import { HStack, Link } from "@chakra-ui/react"
+import { HiMiniShoppingBag } from "react-icons/hi2";
+import { TbLogout } from "react-icons/tb";
+
 import { Image } from "../Image"
 import { TitleNavbar } from "../Title"
 
@@ -8,7 +11,7 @@ interface NavbarProps {
     href: string
 }
 
-export function Navbar({ login, href }:NavbarProps) {
+export function Navbar({ login, href }: NavbarProps) {
     return (
         <HStack
             bg={"purple"}
@@ -16,8 +19,8 @@ export function Navbar({ login, href }:NavbarProps) {
             height={"100px"}
             justifyContent={"space-between"}
             paddingX={6}
-            // position={"fixed"}
-            // top={0}
+        // position={"fixed"}
+        // top={0}
         >
             <Image src={"/logo.png"} alt={"Crochê da Lelê"} width={491} height={125} w="20%" />
             <HStack
@@ -41,7 +44,12 @@ export function Navbar({ login, href }:NavbarProps) {
                 <Link as={NextLink} href={href} color='lilac'>
                     <TitleNavbar title={login} size={"32px"} />
                 </Link>
-                <TitleNavbar title={"Img"} size={"32px"} />
+                <div style={{ color: '#FEFFF5' }}>
+                    <HiMiniShoppingBag size={36} />
+                </div>
+                <div style={{ color: '#FEFFF5' }}>
+                    <TbLogout size={40} />
+                </div>
             </HStack>
         </HStack>
     )
