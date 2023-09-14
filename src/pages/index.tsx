@@ -1,4 +1,5 @@
 import { ArticleIndexSecundary, ArticleIndexTerciary, ArticleShop } from "@/components/Article";
+import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { SectionIndexPrimary } from "@/components/Section";
 import { Stack } from "@chakra-ui/react";
@@ -8,7 +9,7 @@ export default function Home() {
     <Stack
       spacing={0}
     >
-      <Navbar></Navbar>
+      <Navbar login={"Login"} href={"/login"}></Navbar>
       <SectionIndexPrimary></SectionIndexPrimary>
       <ArticleIndexSecundary></ArticleIndexSecundary>
       <ArticleIndexTerciary></ArticleIndexTerciary>
@@ -31,7 +32,7 @@ export default function Home() {
         titleItem3={"Vestido Pink"} price3={"R$119,90"} src3={"/bolsa1.png"} alt3={""} width3={120} height3={125} 
       ></ArticleShop>
 
-      //adicionar footer
+      <Footer></Footer>
     </Stack>
   )
 }

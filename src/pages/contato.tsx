@@ -1,3 +1,4 @@
+import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { SectionContatoPrimary, SectionContatoSecondary } from "@/components/Section";
 
@@ -8,9 +9,10 @@ export default function Contato() {
       <Stack
         spacing={0}
       >
-        <Navbar></Navbar>
+        <Navbar login={"Login"} href={"/login"}></Navbar>
         <SectionContatoPrimary></SectionContatoPrimary>
         <SectionContatoSecondary></SectionContatoSecondary>
+        <Footer></Footer>
       </Stack>
     )
   }
