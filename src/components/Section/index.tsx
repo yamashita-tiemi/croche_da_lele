@@ -15,7 +15,7 @@ export function SectionIndexPrimary() {
             as="section"
             backgroundImage={"/img_index.png"}
             width={"100%"}
-            height={"710px"}
+            height={"720px"}
             bgRepeat={"no-repeat"}
             justifyContent={"flex-end"}
             paddingBottom={10}
