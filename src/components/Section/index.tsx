@@ -7,7 +7,7 @@ import { Image } from "../Image";
 import { TitleSection } from "../Title";
 import { ButtonAccordion, ButtonTurquesa } from "../Button";
 import { CardContato } from "../Card";
-import { TableMembros } from '../Table';
+import { TableAdmin, TableMembros } from '../Table';
 
 export function SectionIndexPrimary() {
     return (
@@ -225,6 +225,28 @@ export function SectionMembros() {
         >
             <TitleSection title={"Nossos Colaboradores"} size={"48px"}/>
             <TableMembros></TableMembros>
+        </Stack>
+    )
+}
+
+export function SectionAdmin() {
+    return (
+        <Stack
+            as="section"
+            width={"100%"}
+            // height={"710px"}
+            align={"center"}
+            paddingTop={24}
+            spacing={24}
+        >
+            <TitleSection title={"Lista de Membros"} size={"48px"}/>
+            <Stack
+                width={"80%"}
+                align={"flex-start"}
+            >
+                <ButtonTurquesa title={'+ Novo Membro'} href={'/'} w='15%' fontsize={'20px'}></ButtonTurquesa>
+                <TableAdmin></TableAdmin>
+            </Stack>
         </Stack>
     )
 }
