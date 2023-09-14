@@ -1,13 +1,13 @@
-import NextLink from 'next/link'
-import { Accordion, Box, HStack, Input, InputGroup, InputLeftElement, InputRightElement, Link, Stack } from "@chakra-ui/react";
+import { Accordion, Box, HStack, Input, InputGroup, InputLeftElement, Stack } from "@chakra-ui/react";
 // import { EmailIcon } from '@chakra-ui/icons'
 
 import { TextIndex } from "../Text";
 import { ArticleIndexPrimary } from "../Article";
 import { Image } from "../Image";
-import { TitleNavbar, TitleSection } from "../Title";
-import { ButtonAccordion } from "../Button";
+import { TitleSection } from "../Title";
+import { ButtonAccordion, ButtonTurquesa } from "../Button";
 import { CardContato } from "../Card";
+import { TableMembros } from '../Table';
 
 export function SectionIndexPrimary() {
     return (
@@ -76,7 +76,7 @@ export function SectionContatoPrimary() {
             as="section"
             bg={"purple"}
             spacing={0}
-            height={"710px"}
+            height={"539px"}
         >
             <Stack
                 as="section"
@@ -110,7 +110,7 @@ export function SectionContatoSecondary() {
                 width={"60%"}
                 align={"center"}
                 spacing={20}
-                paddingTop={32}
+                paddingTop={28}
             >
                 <TitleSection title={"Perguntas Frequentes"} size={"40px"} />
 
@@ -208,19 +208,23 @@ export function SectionLogin() {
                     </InputGroup>
                 </Stack>
             </HStack>
-            <Box
-                as='button'
-                borderRadius={"16px"}
-                bg='turquesa'
-                color='offWhite'
-                w={"40%"}
-                padding={4}
-                fontSize={"32px"}
-            >
-                <Link as={NextLink} href='/admin'>
-                    <TitleNavbar title={"Login"} size={"32px"} />
-                </Link>
-            </Box>
+            <ButtonTurquesa title={'Login'} href={'/admin'} w='40%' fontsize={'32px'}></ButtonTurquesa>
+        </Stack>
+    )
+}
+
+export function SectionMembros() {
+    return (
+        <Stack
+            as="section"
+            width={"100%"}
+            // height={"710px"}
+            align={"center"}
+            paddingTop={24}
+            spacing={24}
+        >
+            <TitleSection title={"Nossos Colaboradores"} size={"48px"}/>
+            <TableMembros></TableMembros>
         </Stack>
     )
 }
