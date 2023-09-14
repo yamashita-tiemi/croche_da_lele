@@ -11,7 +11,7 @@ export function Footer() {
             width={"100%"}
             paddingX={4}
             justifyContent={"space-between"}
-            marginTop={32}
+            marginTop={12}
         >
             <Image src={"/logo_redonda.png"} alt={"Crochê da Lelê"} width={491} height={125} w="15%" />
             <Stack
