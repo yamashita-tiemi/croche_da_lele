@@ -45,3 +45,54 @@ export function TableMembros() {
         </TableContainer>
     )
 }
+
+export function TableAdmin() {
+    return (
+        <TableContainer
+            bg={"offWhite"}
+            width={"100%"}
+        >
+            <Table variant='striped' color="purple">
+                <Thead bg={"purple"}>
+                    <Tr>
+                        <Th color={"offWhite"} fontSize={"24px"} width={"15%"} textAlign={"center"}>Nome</Th>
+                        <Th color={"offWhite"} fontSize={"24px"} width={"15%"} textAlign={"center"}>Cargo</Th>
+                        <Th color={"offWhite"} fontSize={"24px"} width={"15%"} textAlign={"center"}>Email</Th>
+                        <Th color={"offWhite"} fontSize={"24px"} width={"15%"} textAlign={"center"}>Aniversário</Th>
+                        <Th color={"offWhite"} fontSize={"24px"} width={"35%"} textAlign={"center"}>Icones</Th>
+                    </Tr>
+                </Thead>
+                <Tbody>
+                    <Tr>
+                        <Td textAlign={"center"}>Amanda S.</Td>
+                        <Td textAlign={"center"}>Marketing</Td>
+                        <Td textAlign={"center"}>amanda_cl@gmail.com</Td>
+                        <Td textAlign={"center"}>20/07/1997</Td>
+                        <Td textAlign={"center"}>Img Img Img</Td>
+                    </Tr>
+                    <Tr>
+                        <Td textAlign={"center"}>Amanda S.</Td>
+                        <Td textAlign={"center"}>Marketing</Td>
+                        <Td textAlign={"center"}>amanda_cl@gmail.com</Td>
+                        <Td textAlign={"center"}>20/07/1997</Td>
+                        <Td textAlign={"center"}>Img Img Img</Td>
+                    </Tr>
+                    <Tr>
+                        <Td textAlign={"center"}>Amanda S.</Td>
+                        <Td textAlign={"center"}>Marketing</Td>
+                        <Td textAlign={"center"}>amanda_cl@gmail.com</Td>
+                        <Td textAlign={"center"}>20/07/1997</Td>
+                        <Td textAlign={"center"}>Img Img Img</Td>
+                    </Tr>
+                    <Tr>
+                        <Td textAlign={"center"}>Amanda S.</Td>
+                        <Td textAlign={"center"}>Marketing</Td>
+                        <Td textAlign={"center"}>amanda_cl@gmail.com</Td>
+                        <Td textAlign={"center"}>20/07/1997</Td>
+                        <Td textAlign={"center"}>Img Img Img</Td>
+                    </Tr>
+                </Tbody>
+            </Table>
+        </TableContainer>
+    )
+}
