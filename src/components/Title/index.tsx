@@ -36,3 +36,22 @@ export function TitleSection({ title, size }:TitleSectionProps) {
         </Heading>
     )
 }
+
+interface TitleFooterProps {
+    title: string
+}
+
+export function TitleFooter({ title }:TitleFooterProps) {
+    return(
+        <Heading
+            as="h2"
+            fontSize={"24px"}
+            fontWeight={400}
+            color={"offWhite"}
+            // textShadow={"4px 4px 15px rgba(0, 0, 0, 0.45)"}
+            textDecoration={"underline"}
+        >
+            {title}
+        </Heading>
+    )
+}
