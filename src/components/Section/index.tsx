@@ -1,4 +1,4 @@
-import { Accordion, Box, HStack, Input, InputGroup, InputLeftElement, Stack } from "@chakra-ui/react";
+import { Accordion, Box, FormControl, FormLabel, HStack, Input, InputGroup, InputLeftElement, Stack } from "@chakra-ui/react";
 // import { EmailIcon } from '@chakra-ui/icons'
 
 import { TextIndex } from "../Text";
@@ -174,40 +174,23 @@ export function SectionLogin() {
                 borderRadius={"16px 16px 0 0"}
                 align={"center"}
             >
-                <Image src={"/logo_redonda.png"} alt={""} width={500} height={500} w="20%"/>
+                <Image src={"/logo_redonda.png"} alt={""} width={500} height={500} w="20%" />
             </Box>
-            <HStack
-                width={"90%"}
-                spacing={4}
-                justifyContent={"space-between"}
-            >
-                <Stack
-                    width={"45%"}
+            <FormControl isRequired width={"90%"}>
+                <HStack
+                    spacing={4}
+                    justifyContent={"space-between"}
                 >
-                    <TextIndex text={"Email:"} size={"24px"} color={"#000"}/>
-                    <InputGroup>
-                        <InputLeftElement pointerEvents='none'>
-                            {/* <EmailIcon color='gray.300' /> */}
-                        </InputLeftElement>
-                        <Input type='email' placeholder='Digite o email' padding={6}/>
-                    </InputGroup>
-                </Stack>
-
-                <Stack
-                    width={"45%"}
-                >
-                    <TextIndex text={"Senha:"} size={"24px"} color={"#000"}/>
-                    <InputGroup>
-                        {/* <InputLeftElement
-                            pointerEvents='none'
-                            color='gray.300'
-                            fontSize='1.2em'
-                            children='$'
-                        /> */}
-                        <Input type='password' placeholder='Digite a senha' padding={6}/>
-                    </InputGroup>
-                </Stack>
-            </HStack>
+                    <Stack width={"45%"}>
+                        <FormLabel>Email</FormLabel>
+                        <Input type='email' placeholder='Digite o email' padding={6} />
+                    </Stack>
+                    <Stack width={"45%"}>
+                        <FormLabel>Senha</FormLabel>
+                        <Input type='password' placeholder='Digite a senha' padding={6} />
+                    </Stack>
+                </HStack>
+            </FormControl>
             <ButtonTurquesa title={'Login'} href={'/admin'} w='40%' fontsize={'32px'}></ButtonTurquesa>
         </Stack>
     )
@@ -223,7 +206,7 @@ export function SectionMembros() {
             paddingTop={24}
             spacing={24}
         >
-            <TitleSection title={"Nossos Colaboradores"} size={"48px"}/>
+            <TitleSection title={"Nossos Colaboradores"} size={"48px"} />
             <TableMembros></TableMembros>
         </Stack>
     )
@@ -239,7 +222,7 @@ export function SectionAdmin() {
             paddingTop={24}
             spacing={24}
         >
-            <TitleSection title={"Lista de Membros"} size={"48px"}/>
+            <TitleSection title={"Lista de Membros"} size={"48px"} />
             <Stack
                 width={"80%"}
                 align={"flex-start"}
