@@ -1,4 +1,7 @@
-import { Heading, AccordionButton, AccordionIcon, Box, AccordionItem, AccordionPanel } from "@chakra-ui/react"
+import NextLink from 'next/link'
+
+import { Heading, AccordionButton, AccordionIcon, Box, AccordionItem, AccordionPanel, Link } from "@chakra-ui/react"
+import { TitleNavbar } from '../Title'
 
 interface TextIndexProps {
     question: string
@@ -36,6 +39,29 @@ export function ButtonAccordion({ question, answer }: TextIndexProps) {
                 {answer}
             </AccordionPanel>
         </AccordionItem>
+    )
+}
 
+interface ButtonTurquesaProps {
+    title: string
+    href: string
+    fontsize: string
+    w?: string
+}
+
+export function ButtonTurquesa({ title, href, fontsize, w }: ButtonTurquesaProps) {
+    return (
+        <Box
+                as='button'
+                borderRadius={"16px"}
+                bg='turquesa'
+                color='offWhite'
+                w={w}
+                padding={4}
+            >
+                <Link as={NextLink} href={href}>
+                    <TitleNavbar title={title} size={fontsize} />
+                </Link>
+            </Box>
     )
 }
