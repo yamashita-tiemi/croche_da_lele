@@ -1,4 +1,4 @@
-import { Box, Stack } from "@chakra-ui/react"
+import { Box, Link, Stack } from "@chakra-ui/react"
 import { TitleNavbar, TitleSection } from "../Title"
 import { ImageCard } from "../Image"
 import { TextCard } from "../Text"
@@ -10,9 +10,10 @@ interface CardSectionProps {
     height: number
     title: string
     w?: string
+    id: string
 }
 
-export function CardSection({ src, alt, title, width, height, w }: CardSectionProps) {
+export function CardSection({ src, alt, title, width, height, w, id }: CardSectionProps) {
     return (
         <Stack
             bg={"turquesa"}
@@ -29,16 +30,21 @@ export function CardSection({ src, alt, title, width, height, w }: CardSectionPr
             <ImageCard src={src} alt={alt} width={width} height={height} w={w} />
             <TitleNavbar title={title} size={"36px"} />
 
-            <Box
-                as='button'
-                borderRadius={"4px"}
-                bg='purple'
-                color='offWhite'
-                w={"80%"}
-                p={4}
+            <Link
+                href={"#"+id}
+                width={"80%"}
             >
-                Ver Produtos
-            </Box>
+                <Box
+                    as='button'
+                    bg='purple'
+                    width={"100%"}
+                    color='offWhite'
+                    borderRadius={"4px"}
+                    p={4}
+                >
+                    Ver Produtos
+                </Box>
+            </Link>
         </Stack>
     )
 }

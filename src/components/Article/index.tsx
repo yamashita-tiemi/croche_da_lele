@@ -36,7 +36,7 @@ export function ArticleIndexSecundary() {
             width={"100%"}
             height={"710px"}
             align={"center"}
-            paddingTop={32}
+            paddingTop={20}
             spacing={32}
         >
             <TitleSection title={"Nossos Produtos"} size={"48px"} />
@@ -44,9 +44,9 @@ export function ArticleIndexSecundary() {
                 width={"100%"}
                 justifyContent={"space-around"}
             >
-                <CardSection src={"/bolsa1.png"} alt={""} title={"Bolsas"} width={120} height={125} w="40%"/>
-                <CardSection src={"/bolsa2.jpeg"} alt={""} title={"Croppeds"} width={559} height={672} w="40%"/>
-                <CardSection src={"/bolsa1.png"} alt={""} title={"Vestidos"} width={120} height={125} />
+                <CardSection src={"/bolsa1.png"} alt={""} title={"Bolsas"} width={120} height={125} w="40%" id={"Bolsas"}/>
+                <CardSection src={"/bolsa2.jpeg"} alt={""} title={"Croppeds"} width={559} height={672} w="40%" id={"Croppeds"}/>
+                <CardSection src={"/bolsa1.png"} alt={""} title={"Vestidos"} width={120} height={125} id={"Vestidos"} />
             </HStack>
         </Stack>
     )
@@ -59,7 +59,7 @@ export function ArticleIndexTerciary() {
             width={"100%"}
             // height={"710px"}
             align={"center"}
-            paddingTop={32}
+            paddingTop={20}
             paddingBottom={32}
             spacing={16}
         >
@@ -101,19 +101,22 @@ interface ArticleShopProps {
     titleItem3: string
     price3: string
     w3?: string
+    id: string
 }
 
-export function ArticleShop({ title, color, colorCard, src1, alt1, titleItem1, price1, width1, height1, w1, src2, alt2, titleItem2, price2, width2, height2, w2, src3, alt3, titleItem3, price3, width3, height3, w3 }:ArticleShopProps) {
+export function ArticleShop({ title, color, colorCard, src1, alt1, titleItem1, price1, width1, height1, w1, src2, alt2, titleItem2, price2, width2, height2, w2, src3, alt3, titleItem3, price3, width3, height3, w3, id }:ArticleShopProps) {
     return(
         <Stack
             bg={color}
             as="article"
             width={"100%"}
-            // height={"710px"}
+            minHeight={"810px"}
             align={"center"}
+            justifyContent={"center"}
             paddingTop={20}
             paddingBottom={32}
-            spacing={16}
+            spacing={20}
+            id={id}
         >
             <TitleSection title={title} size={"48px"} />
 
