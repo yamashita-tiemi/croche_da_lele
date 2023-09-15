@@ -2,6 +2,7 @@ import { HStack, Stack } from "@chakra-ui/react";
 import { Image } from "../Image";
 import { TitleFooter } from "../Title";
 import { TextIndex } from "../Text";
+import { IconSocialMedia } from "../Icons";
 
 export function Footer() {
     return (
@@ -34,7 +35,7 @@ export function Footer() {
                 width={"20%"}
                 align={"center"}
             >
-                <TitleFooter title={"Icones"}></TitleFooter>
+                <IconSocialMedia size={40} width={"60px"}></IconSocialMedia>
                 <Stack
                     align={"center"}
                 >

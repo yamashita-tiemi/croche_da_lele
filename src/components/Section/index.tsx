@@ -1,5 +1,6 @@
-import { Accordion, Box, FormControl, FormLabel, HStack, Input, InputGroup, InputLeftElement, Stack } from "@chakra-ui/react";
-// import { EmailIcon } from '@chakra-ui/icons'
+import { MdEmail, MdSupportAgent } from "react-icons/md";
+import { AiFillPlusCircle } from "react-icons/ai";
+import { Accordion, Box, FormControl, FormLabel, HStack, Input, Stack } from "@chakra-ui/react";
 
 import { TextIndex } from "../Text";
 import { ArticleIndexPrimary } from "../Article";
@@ -8,6 +9,7 @@ import { TitleSection } from "../Title";
 import { ButtonAccordion, ButtonTurquesa } from "../Button";
 import { CardContato } from "../Card";
 import { TableAdmin, TableMembros } from '../Table';
+import { Icon, IconSocialMedia } from "../Icons";
 
 export function SectionIndexPrimary() {
     return (
@@ -145,12 +147,33 @@ export function SectionContatoSecondary() {
                 as="section"
                 width={"40%"}
                 align={"center"}
-                spacing={20}
+                spacing={10}
             >
-                <CardContato src={""} alt={""} width={0} height={0} title={"Telefone"} text={"(XX) X XXXX-XXXX"} obs="09h às 18h"></CardContato>
-                <CardContato src={""} alt={""} width={0} height={0} title={"Email"} text={"croche_da_lele@gmail.com"}></CardContato>
-
-                //adicionar os icons
+                <Box
+                    as='button'
+                    borderRadius={"4px"}
+                    color='offWhite'
+                    w={"80%"}
+                    p={4}
+                >
+                    <Icon width={"100px"} colorBg={"purple"} color={"offWhite"} margin={"auto"} marginBottom={"25px"}>
+                        <MdSupportAgent size={80} />
+                    </Icon>
+                    <CardContato title={"Telefone"} text={"(XX) X XXXX-XXXX"} obs="09h às 18h"></CardContato>
+                </Box>
+                <Box
+                    as='button'
+                    borderRadius={"4px"}
+                    color='offWhite'
+                    w={"80%"}
+                    p={4}
+                >
+                    <Icon width={"100px"} colorBg={"purple"} color={"offWhite"} margin={"auto"} marginBottom={"25px"}>
+                        <MdEmail size={80} />
+                    </Icon>
+                    <CardContato title={"Email"} text={"croche_da_lele@gmail.com"}></CardContato>
+                </Box>
+                <IconSocialMedia size={60} width={"100px"}></IconSocialMedia>
             </Stack>
         </HStack>
     )
@@ -227,7 +250,9 @@ export function SectionAdmin() {
                 width={"80%"}
                 align={"flex-start"}
             >
-                <ButtonTurquesa title={'+ Novo Membro'} href={'/'} w='15%' fontsize={'20px'}></ButtonTurquesa>
+                <ButtonTurquesa title={'Novo Membro'} href={'/'} w='15%' fontsize={'20px'}>
+                    <AiFillPlusCircle size={20} color={"#FEFFF5"}/>
+                </ButtonTurquesa>
                 <TableAdmin></TableAdmin>
             </Stack>
         </Stack>

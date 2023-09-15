@@ -1,4 +1,5 @@
 import { TableContainer, Thead, Tr, Th, Tbody, Td, Table } from "@chakra-ui/react";
+import { IconSocialCRUD } from "../Icons";
 
 export function TableMembros() {
     return (
@@ -68,28 +69,28 @@ export function TableAdmin() {
                         <Td textAlign={"center"}>Marketing</Td>
                         <Td textAlign={"center"}>amanda_cl@gmail.com</Td>
                         <Td textAlign={"center"}>20/07/1997</Td>
-                        <Td textAlign={"center"}>Img Img Img</Td>
+                        <Td textAlign={"center"}><IconSocialCRUD/></Td>
                     </Tr>
                     <Tr>
                         <Td textAlign={"center"}>Amanda S.</Td>
                         <Td textAlign={"center"}>Marketing</Td>
                         <Td textAlign={"center"}>amanda_cl@gmail.com</Td>
                         <Td textAlign={"center"}>20/07/1997</Td>
-                        <Td textAlign={"center"}>Img Img Img</Td>
+                        <Td textAlign={"center"}><IconSocialCRUD/></Td>
                     </Tr>
                     <Tr>
                         <Td textAlign={"center"}>Amanda S.</Td>
                         <Td textAlign={"center"}>Marketing</Td>
                         <Td textAlign={"center"}>amanda_cl@gmail.com</Td>
                         <Td textAlign={"center"}>20/07/1997</Td>
-                        <Td textAlign={"center"}>Img Img Img</Td>
+                        <Td textAlign={"center"}><IconSocialCRUD/></Td>
                     </Tr>
                     <Tr>
                         <Td textAlign={"center"}>Amanda S.</Td>
                         <Td textAlign={"center"}>Marketing</Td>
                         <Td textAlign={"center"}>amanda_cl@gmail.com</Td>
                         <Td textAlign={"center"}>20/07/1997</Td>
-                        <Td textAlign={"center"}>Img Img Img</Td>
+                        <Td textAlign={"center"}><IconSocialCRUD/></Td>
                     </Tr>
                 </Tbody>
             </Table>
