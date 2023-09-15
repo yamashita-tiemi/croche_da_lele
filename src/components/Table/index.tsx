@@ -1,5 +1,5 @@
 import { TableContainer, Thead, Tr, Th, Tbody, Td, Table } from "@chakra-ui/react";
-import { IconSocialCRUD } from "../Icons";
+import { ModalCRUD } from "../Modal";
 
 export function TableMembros() {
     return (
@@ -56,11 +56,11 @@ export function TableAdmin() {
             <Table variant='striped' color="purple">
                 <Thead bg={"purple"}>
                     <Tr>
-                        <Th color={"offWhite"} fontSize={"24px"} width={"15%"} textAlign={"center"}>Nome</Th>
-                        <Th color={"offWhite"} fontSize={"24px"} width={"15%"} textAlign={"center"}>Cargo</Th>
-                        <Th color={"offWhite"} fontSize={"24px"} width={"15%"} textAlign={"center"}>Email</Th>
-                        <Th color={"offWhite"} fontSize={"24px"} width={"15%"} textAlign={"center"}>Aniversário</Th>
-                        <Th color={"offWhite"} fontSize={"24px"} width={"35%"} textAlign={"center"}>Icones</Th>
+                        <Th color={"offWhite"} fontSize={"24px"} width={"18%"} textAlign={"center"}>Nome</Th>
+                        <Th color={"offWhite"} fontSize={"24px"} width={"18%"} textAlign={"center"}>Cargo</Th>
+                        <Th color={"offWhite"} fontSize={"24px"} width={"18%"} textAlign={"center"}>Email</Th>
+                        <Th color={"offWhite"} fontSize={"24px"} width={"18%"} textAlign={"center"}>Aniversário</Th>
+                        <Th color={"offWhite"} fontSize={"24px"} width={"28%"} textAlign={"center"}></Th>
                     </Tr>
                 </Thead>
                 <Tbody>
@@ -69,28 +69,28 @@ export function TableAdmin() {
                         <Td textAlign={"center"}>Marketing</Td>
                         <Td textAlign={"center"}>amanda_cl@gmail.com</Td>
                         <Td textAlign={"center"}>20/07/1997</Td>
-                        <Td textAlign={"center"}><IconSocialCRUD/></Td>
+                        <Td textAlign={"center"}><ModalCRUD/></Td>
                     </Tr>
                     <Tr>
                         <Td textAlign={"center"}>Amanda S.</Td>
                         <Td textAlign={"center"}>Marketing</Td>
                         <Td textAlign={"center"}>amanda_cl@gmail.com</Td>
                         <Td textAlign={"center"}>20/07/1997</Td>
-                        <Td textAlign={"center"}><IconSocialCRUD/></Td>
+                        <Td textAlign={"center"}><ModalCRUD/></Td>
                     </Tr>
                     <Tr>
                         <Td textAlign={"center"}>Amanda S.</Td>
                         <Td textAlign={"center"}>Marketing</Td>
                         <Td textAlign={"center"}>amanda_cl@gmail.com</Td>
                         <Td textAlign={"center"}>20/07/1997</Td>
-                        <Td textAlign={"center"}><IconSocialCRUD/></Td>
+                        <Td textAlign={"center"}><ModalCRUD/></Td>
                     </Tr>
                     <Tr>
                         <Td textAlign={"center"}>Amanda S.</Td>
                         <Td textAlign={"center"}>Marketing</Td>
                         <Td textAlign={"center"}>amanda_cl@gmail.com</Td>
                         <Td textAlign={"center"}>20/07/1997</Td>
-                        <Td textAlign={"center"}><IconSocialCRUD/></Td>
+                        <Td textAlign={"center"}><ModalCRUD/></Td>
                     </Tr>
                 </Tbody>
             </Table>
