@@ -1,6 +1,6 @@
 import NextLink from 'next/link'
 
-import { Heading, AccordionButton, AccordionIcon, Box, AccordionItem, AccordionPanel, Link } from "@chakra-ui/react"
+import { Heading, AccordionButton, AccordionIcon, Box, AccordionItem, AccordionPanel, Link, HStack } from "@chakra-ui/react"
 import { TitleNavbar } from '../Title'
 
 interface TextIndexProps {
@@ -47,9 +47,10 @@ interface ButtonTurquesaProps {
     href: string
     fontsize: string
     w?: string
+    children?: any
 }
 
-export function ButtonTurquesa({ title, href, fontsize, w }: ButtonTurquesaProps) {
+export function ButtonTurquesa({ title, href, fontsize, w, children }: ButtonTurquesaProps) {
     return (
         <Box
                 as='button'
@@ -57,10 +58,13 @@ export function ButtonTurquesa({ title, href, fontsize, w }: ButtonTurquesaProps
                 bg='turquesa'
                 color='offWhite'
                 w={w}
-                padding={4}
+                paddingY={4}
             >
                 <Link as={NextLink} href={href}>
-                    <TitleNavbar title={title} size={fontsize} />
+                    <HStack justifyContent={"center"}>
+                        {children}
+                        <TitleNavbar title={title} size={fontsize} />
+                    </HStack>
                 </Link>
             </Box>
     )
