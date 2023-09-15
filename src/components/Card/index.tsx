@@ -1,4 +1,5 @@
 import { Box, Link, Stack } from "@chakra-ui/react"
+
 import { TitleNavbar, TitleSection } from "../Title"
 import { ImageCard } from "../Image"
 import { TextCard } from "../Text"
@@ -31,7 +32,7 @@ export function CardSection({ src, alt, title, width, height, w, id }: CardSecti
             <TitleNavbar title={title} size={"36px"} />
 
             <Link
-                href={"#"+id}
+                href={"#" + id}
                 width={"80%"}
             >
                 <Box
@@ -86,27 +87,13 @@ export function CardShop({ src, alt, title, text, width, height, color, w }: Car
 }
 
 interface CardContatoProps {
-    src: string
-    alt: string
-    width: number
-    height: number
     title: string
     obs?: any
     text: string
-    w?: string
 }
 
-export function CardContato({ src, alt, title, text, obs, width, height, w }: CardContatoProps) {
+export function CardContato({ title, text, obs }: CardContatoProps) {
     return (
-        <Box
-            as='button'
-            borderRadius={"4px"}
-            bg='purple'
-            color='offWhite'
-            w={"80%"}
-            p={4}
-        >
-            <ImageCard src={src} alt={alt} width={width} height={height} w={w} />
             <Stack
                 spacing={5}
                 align={"center"}
@@ -119,6 +106,5 @@ export function CardContato({ src, alt, title, text, obs, width, height, w }: Ca
                 </Stack>
                 <TextCard text={text} size={"32px"} />
             </Stack>
-        </Box>
     )
 }
