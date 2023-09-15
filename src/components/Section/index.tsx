@@ -1,15 +1,15 @@
 import { MdEmail, MdSupportAgent } from "react-icons/md";
-import { AiFillPlusCircle } from "react-icons/ai";
 import { Accordion, Box, FormControl, FormLabel, HStack, Input, Stack } from "@chakra-ui/react";
 
 import { TextIndex } from "../Text";
 import { ArticleIndexPrimary } from "../Article";
 import { Image } from "../Image";
 import { TitleSection } from "../Title";
-import { ButtonAccordion, ButtonTurquesa } from "../Button";
+import { ButtonAccordion, ButtonLogin } from "../Button";
 import { CardContato } from "../Card";
 import { TableAdmin, TableMembros } from '../Table';
 import { Icon, IconSocialMedia } from "../Icons";
+import { ModalCreate } from "../Modal";
 
 export function SectionIndexPrimary() {
     return (
@@ -217,7 +217,7 @@ export function SectionLogin() {
                     width={"100%"}
                     spacing={4}
                     justifyContent={"space-between"}
-                    marginBottom={16}
+                    marginBottom={20}
                 >
                     <Stack width={"45%"}>
                         <FormLabel>Email</FormLabel>
@@ -228,7 +228,7 @@ export function SectionLogin() {
                         <Input type='password' placeholder='Digite a senha' padding={6} />
                     </Stack>
                 </HStack>
-                <ButtonTurquesa title={'Login'} href={'/admin'} w='40%' fontsize={'32px'} justifyContent={"center"}></ButtonTurquesa>
+                <ButtonLogin title={'Login'} w='30%'></ButtonLogin>
             </FormControl>
         </Stack>
     )
@@ -264,10 +264,9 @@ export function SectionAdmin() {
             <Stack
                 width={"80%"}
                 align={"flex-start"}
+                spacing={5}
             >
-                <ButtonTurquesa title={'Novo Membro'} href={'/'} w='15%' fontsize={'20px'} justifyContent={"flex-start"}>
-                    <AiFillPlusCircle size={20} color={"#FEFFF5"} />
-                </ButtonTurquesa>
+                <ModalCreate></ModalCreate>
                 <TableAdmin></TableAdmin>
             </Stack>
         </Stack>

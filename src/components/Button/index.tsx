@@ -1,7 +1,8 @@
 import NextLink from 'next/link'
 
-import { Heading, AccordionButton, AccordionIcon, Box, AccordionItem, AccordionPanel, Link, HStack } from "@chakra-ui/react"
+import { Heading, AccordionButton, AccordionIcon, Box, AccordionItem, AccordionPanel, Link, HStack, Button } from "@chakra-ui/react"
 import { TitleNavbar } from '../Title'
+import { AiFillPlusCircle } from 'react-icons/ai'
 
 interface TextIndexProps {
     question: string
@@ -42,40 +43,55 @@ export function ButtonAccordion({ question, answer }: TextIndexProps) {
     )
 }
 
-interface ButtonTurquesaProps {
+interface ButtonLoginProps {
     title: string
-    href: string
-    fontsize: string
     w?: string
     children?: any
-    justifyContent: string
 }
 
-export function ButtonTurquesa({ title, href, fontsize, w, children, justifyContent }: ButtonTurquesaProps) {
+export function ButtonLogin({ title, w, children }: ButtonLoginProps) {
     return (
-
-        <Link
-            as={NextLink}
-            href={href}
-            width={"100%"}
-            display={"flex"}
-            justifyContent={justifyContent}
+        <Box
+            as='button'
+            borderRadius={"16px"}
+            bg='turquesa'
             color='offWhite'
+            w={w}
+            paddingY={2}
+            type='submit'
         >
-            <Box
-                as='button'
-                borderRadius={"16px"}
-                bg='turquesa'
-                color='offWhite'
-                w={w}
-                paddingY={4}
-                type='submit'
+            <Link
+                as={NextLink}
+                href={'/admin'}
             >
                 <HStack justifyContent={"center"}>
                     {children}
-                    <TitleNavbar title={title} size={fontsize} />
+                    <TitleNavbar title={title} size={'32px'} />
+                </HStack>
+            </Link >
+        </Box >
+    )
+}
+
+interface ButtonMembroProps {
+    onOpen: any
+}
+
+export function ButtonMembro({ onOpen }: ButtonMembroProps) {
+    return (
+        <Button onClick={onOpen} bg={"none"} _hover={"none"}>
+            <Box
+                borderRadius={"16px"}
+                bg='turquesa'
+                color='offWhite'
+                w={"200px"}
+                paddingY={4}
+            >
+                <HStack justifyContent={"center"}>
+                    <AiFillPlusCircle size={28} />
+                    <TitleNavbar title={"Novo Membro"} size={'20px'} />
                 </HStack>
             </Box>
-        </Link >
+        </Button>
     )
 }

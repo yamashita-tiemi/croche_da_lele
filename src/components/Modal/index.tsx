@@ -1,7 +1,11 @@
-import { Button, FormControl, FormLabel, HStack, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalOverlay, useDisclosure } from "@chakra-ui/react"
 import React from "react"
-import { IconSocialCRUD } from "../Icons"
+import { Box, Button, FormControl, FormLabel, HStack, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalOverlay, useDisclosure } from "@chakra-ui/react"
+import { AiFillPlusCircle } from "react-icons/ai";
+
+import { Icon, IconSocialCRUD } from "../Icons"
 import { TextIndex } from "../Text";
+import { TitleNavbar } from "../Title";
+import { ButtonMembro } from "../Button";
 
 
 export function ModalCRUD() {
@@ -13,7 +17,7 @@ export function ModalCRUD() {
 
     return (
         <>
-            <IconSocialCRUD onOpenView={onOpenView} onOpenEdit={onOpenEdit} onOpenDelete={onOpenDelete}/>
+            <IconSocialCRUD onOpenView={onOpenView} onOpenEdit={onOpenEdit} onOpenDelete={onOpenDelete} />
 
             <Modal
                 initialFocusRef={initialRef}
@@ -27,29 +31,26 @@ export function ModalCRUD() {
                     <ModalBody pb={6} pt={16}>
                         <FormControl>
                             <FormLabel>Nome</FormLabel>
-                            <Input ref={initialRef} placeholder='nome' />
+                            <Input type="text" ref={initialRef} placeholder='nome' />
                         </FormControl>
 
                         <FormControl mt={4}>
                             <FormLabel>Cargo</FormLabel>
-                            <Input placeholder='cargo' />
+                            <Input type="text" placeholder='cargo' />
                         </FormControl>
 
                         <FormControl mt={4}>
                             <FormLabel>Email</FormLabel>
-                            <Input placeholder='email' />
+                            <Input type="email" placeholder='email' />
                         </FormControl>
 
                         <FormControl mt={4}>
                             <FormLabel>Aniversário</FormLabel>
-                            <Input placeholder='aniversario' />
+                            <Input type="date" placeholder='aniversario' />
                         </FormControl>
                     </ModalBody>
 
                     <ModalFooter>
-                        <Button colorScheme='blue' mr={3}>
-                            Salvar
-                        </Button>
                         <Button onClick={onCloseView}>Fechar</Button>
                     </ModalFooter>
                 </ModalContent>
@@ -67,22 +68,22 @@ export function ModalCRUD() {
                     <ModalBody pb={6} pt={16}>
                         <FormControl>
                             <FormLabel>Nome</FormLabel>
-                            <Input ref={initialRef} placeholder='nome' />
+                            <Input type="text" ref={initialRef} placeholder='nome' />
                         </FormControl>
 
                         <FormControl mt={4}>
                             <FormLabel>Cargo</FormLabel>
-                            <Input placeholder='cargo' />
+                            <Input type="text" placeholder='cargo' />
                         </FormControl>
 
                         <FormControl mt={4}>
                             <FormLabel>Email</FormLabel>
-                            <Input placeholder='email' />
+                            <Input type="email" placeholder='email' />
                         </FormControl>
 
                         <FormControl mt={4}>
                             <FormLabel>Aniversário</FormLabel>
-                            <Input placeholder='aniversario' />
+                            <Input type="date" placeholder='aniversario' />
                         </FormControl>
                     </ModalBody>
 
@@ -111,6 +112,58 @@ export function ModalCRUD() {
                         <Button colorScheme='red' mr={3}>
                             Excluir
                         </Button>
+                    </ModalFooter>
+                </ModalContent>
+            </Modal>
+        </>
+    )
+}
+
+export function ModalCreate() {
+    const { isOpen: isOpen, onOpen: onOpen, onClose: onClose } = useDisclosure()
+
+    const initialRef = React.useRef(null)
+
+    return (
+        <>
+            <ButtonMembro onOpen={onOpen}></ButtonMembro>
+
+            <Modal
+                initialFocusRef={initialRef}
+                isOpen={isOpen}
+                onClose={onClose}
+                isCentered
+            >
+                <ModalOverlay />
+                <ModalContent>
+                    <ModalCloseButton />
+                    <ModalBody pb={6} pt={16}>
+                        <FormControl>
+                            <FormLabel>Nome</FormLabel>
+                            <Input type="text" ref={initialRef} placeholder='Digite o nome' />
+                        </FormControl>
+
+                        <FormControl mt={4}>
+                            <FormLabel>Cargo</FormLabel>
+                            <Input type="text" placeholder='Digite o cargo' />
+                        </FormControl>
+
+                        <FormControl mt={4}>
+                            <FormLabel>Email</FormLabel>
+                            <Input type="email" placeholder='Digite o email' />
+                        </FormControl>
+
+                        <FormControl mt={4}>
+                            <FormLabel>Aniversário</FormLabel>
+                            <Input type="date" placeholder='Digite o aniversario' />
+                        </FormControl>
+                    </ModalBody>
+
+                    <ModalFooter>
+                        <Button colorScheme='blue' mr={3}>
+                            Salvar
+                        </Button>
+                        <Button onClick={onClose}>Fechar</Button>
                     </ModalFooter>
                 </ModalContent>
             </Modal>
