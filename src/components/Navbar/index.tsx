@@ -36,7 +36,6 @@ export function Navbar({ login, href, children }: NavbarProps) {
                 </Link>
             </HStack>
             <HStack
-                spacing={10}
                 w={"20%"}
                 justifyContent={"flex-end"}
             >
@@ -44,12 +43,6 @@ export function Navbar({ login, href, children }: NavbarProps) {
                     <TitleNavbar title={login} size={"32px"} />
                 </Link>
                 {children}
-                {/* <div style={{ color: '#FEFFF5' }}>
-                    <HiMiniShoppingBag size={36} />
-                </div>
-                <div style={{ color: '#FEFFF5' }}>
-                    <TbLogout size={40} />
-                </div> */}
             </HStack>
         </HStack>
     )
