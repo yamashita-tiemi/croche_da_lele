@@ -44,8 +44,8 @@ export function ArticleIndexSecundary() {
                 width={"100%"}
                 justifyContent={"space-around"}
             >
-                <CardSection src={"/bolsa1.png"} alt={""} title={"Bolsas"} width={120} height={125} w="40%" id={"Bolsas"}/>
-                <CardSection src={"/bolsa2.jpeg"} alt={""} title={"Croppeds"} width={559} height={672} w="40%" id={"Croppeds"}/>
+                <CardSection src={"/bolsa1.png"} alt={""} title={"Bolsas"} width={120} height={125} id={"Bolsas"}/>
+                <CardSection src={"/bolsa1.png"} alt={""} title={"Croppeds"} width={120} height={125} id={"Croppeds"}/>
                 <CardSection src={"/bolsa1.png"} alt={""} title={"Vestidos"} width={120} height={125} id={"Vestidos"} />
             </HStack>
         </Stack>

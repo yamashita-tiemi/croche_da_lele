@@ -48,24 +48,34 @@ interface ButtonTurquesaProps {
     fontsize: string
     w?: string
     children?: any
+    justifyContent: string
 }
 
-export function ButtonTurquesa({ title, href, fontsize, w, children }: ButtonTurquesaProps) {
+export function ButtonTurquesa({ title, href, fontsize, w, children, justifyContent }: ButtonTurquesaProps) {
     return (
-        <Box
+
+        <Link
+            as={NextLink}
+            href={href}
+            width={"100%"}
+            display={"flex"}
+            justifyContent={justifyContent}
+            color='offWhite'
+        >
+            <Box
                 as='button'
                 borderRadius={"16px"}
                 bg='turquesa'
                 color='offWhite'
                 w={w}
                 paddingY={4}
+                type='submit'
             >
-                <Link as={NextLink} href={href}>
-                    <HStack justifyContent={"center"}>
-                        {children}
-                        <TitleNavbar title={title} size={fontsize} />
-                    </HStack>
-                </Link>
+                <HStack justifyContent={"center"}>
+                    {children}
+                    <TitleNavbar title={title} size={fontsize} />
+                </HStack>
             </Box>
+        </Link >
     )
 }

@@ -28,6 +28,13 @@ export function SectionIndexPrimary() {
                 text3={"Conheça nossa loja"}
                 w1="25%"
                 w2="30%"
+            // w1={[
+            //     "100%",
+            //     "50%",
+            //     "25%",
+            //     "15%",
+            //   ]}
+            //   w1={{ xl: "100%", md: "50%", xs: "25%" }} 
             ></ArticleIndexPrimary>
         </Stack>
     )
@@ -184,11 +191,11 @@ export function SectionLogin() {
         <Stack
             as="section"
             bg={"offWhite"}
-            width={"70%"}
-            spacing={32}
-            borderRadius={"16px"}
-            marginTop={20}
+            width={"65%"}
             align={"center"}
+            borderRadius={"16px"}
+            spacing={16}
+            marginTop={32}
             paddingBottom={10}
         >
             <Box
@@ -197,12 +204,20 @@ export function SectionLogin() {
                 borderRadius={"16px 16px 0 0"}
                 align={"center"}
             >
-                <Image src={"/logo_redonda.png"} alt={""} width={500} height={500} w="20%" />
+                <Image src={"/logo_redonda.png"} alt={""} width={500} height={500} w="15%" />
             </Box>
-            <FormControl isRequired width={"90%"}>
+            <FormControl
+                isRequired
+                width={"90%"}
+                display={"flex"}
+                flexDirection={"column"}
+                alignItems={"center"}
+            >
                 <HStack
+                    width={"100%"}
                     spacing={4}
                     justifyContent={"space-between"}
+                    marginBottom={16}
                 >
                     <Stack width={"45%"}>
                         <FormLabel>Email</FormLabel>
@@ -213,8 +228,8 @@ export function SectionLogin() {
                         <Input type='password' placeholder='Digite a senha' padding={6} />
                     </Stack>
                 </HStack>
+                <ButtonTurquesa title={'Login'} href={'/admin'} w='40%' fontsize={'32px'} justifyContent={"center"}></ButtonTurquesa>
             </FormControl>
-            <ButtonTurquesa title={'Login'} href={'/admin'} w='40%' fontsize={'32px'}></ButtonTurquesa>
         </Stack>
     )
 }
@@ -243,15 +258,15 @@ export function SectionAdmin() {
             // height={"710px"}
             align={"center"}
             paddingTop={24}
-            spacing={24}
+            spacing={10}
         >
             <TitleSection title={"Lista de Membros"} size={"48px"} />
             <Stack
                 width={"80%"}
                 align={"flex-start"}
             >
-                <ButtonTurquesa title={'Novo Membro'} href={'/'} w='15%' fontsize={'20px'}>
-                    <AiFillPlusCircle size={20} color={"#FEFFF5"}/>
+                <ButtonTurquesa title={'Novo Membro'} href={'/'} w='15%' fontsize={'20px'} justifyContent={"flex-start"}>
+                    <AiFillPlusCircle size={20} color={"#FEFFF5"} />
                 </ButtonTurquesa>
                 <TableAdmin></TableAdmin>
             </Stack>
