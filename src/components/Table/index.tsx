@@ -10,13 +10,13 @@ export function TableMembros() {
             <Table variant='striped' color="purple">
                 <Thead bg={"purple"}>
                     <Tr>
-                        <Th color={"offWhite"} fontSize={"24px"} width={"20%"} textAlign={"center"}>Nome</Th>
-                        <Th color={"offWhite"} fontSize={"24px"} width={"20%"} textAlign={"center"}>Cargo</Th>
-                        <Th color={"offWhite"} fontSize={"24px"} width={"25%"} textAlign={"center"}>Email</Th>
-                        <Th color={"offWhite"} fontSize={"24px"} width={"25%"} textAlign={"center"}>Aniversário</Th>
+                        <Th color={"offWhite"} fontSize={"20px"} width={"20%"} textAlign={"center"}>Nome</Th>
+                        <Th color={"offWhite"} fontSize={"20px"} width={"20%"} textAlign={"center"}>Cargo</Th>
+                        <Th color={"offWhite"} fontSize={"20px"} width={"25%"} textAlign={"center"}>Email</Th>
+                        <Th color={"offWhite"} fontSize={"20px"} width={"25%"} textAlign={"center"}>Aniversário</Th>
                     </Tr>
                 </Thead>
-                <Tbody>
+                <Tbody overflow={"scroll"}>
                     <Tr>
                         <Td textAlign={"center"}>Amanda S.</Td>
                         <Td textAlign={"center"}>Marketing</Td>
@@ -56,14 +56,14 @@ export function TableAdmin() {
             <Table variant='striped' color="purple">
                 <Thead bg={"purple"}>
                     <Tr>
-                        <Th color={"offWhite"} fontSize={"24px"} width={"18%"} textAlign={"center"}>Nome</Th>
-                        <Th color={"offWhite"} fontSize={"24px"} width={"18%"} textAlign={"center"}>Cargo</Th>
-                        <Th color={"offWhite"} fontSize={"24px"} width={"18%"} textAlign={"center"}>Email</Th>
-                        <Th color={"offWhite"} fontSize={"24px"} width={"18%"} textAlign={"center"}>Aniversário</Th>
-                        <Th color={"offWhite"} fontSize={"24px"} width={"28%"} textAlign={"center"}></Th>
+                        <Th color={"offWhite"} fontSize={"20px"} width={"18%"} textAlign={"center"}>Nome</Th>
+                        <Th color={"offWhite"} fontSize={"20px"} width={"18%"} textAlign={"center"}>Cargo</Th>
+                        <Th color={"offWhite"} fontSize={"20px"} width={"18%"} textAlign={"center"}>Email</Th>
+                        <Th color={"offWhite"} fontSize={"20px"} width={"18%"} textAlign={"center"}>Aniversário</Th>
+                        <Th color={"offWhite"} fontSize={"20px"} width={"28%"} textAlign={"center"}></Th>
                     </Tr>
                 </Thead>
-                <Tbody>
+                <Tbody overflow={"scroll"}>
                     <Tr>
                         <Td textAlign={"center"}>Amanda S.</Td>
                         <Td textAlign={"center"}>Marketing</Td>

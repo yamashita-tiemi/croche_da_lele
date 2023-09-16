@@ -1,10 +1,8 @@
 import React from "react"
-import { Box, Button, FormControl, FormLabel, HStack, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalOverlay, useDisclosure } from "@chakra-ui/react"
-import { AiFillPlusCircle } from "react-icons/ai";
+import { Button, FormControl, FormLabel, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalOverlay, useDisclosure } from "@chakra-ui/react"
 
-import { Icon, IconSocialCRUD } from "../Icons"
+import { IconSocialCRUD } from "../Icons"
 import { TextIndex } from "../Text";
-import { TitleNavbar } from "../Title";
 import { ButtonMembro } from "../Button";
 
 
