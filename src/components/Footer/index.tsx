@@ -1,4 +1,4 @@
-import { HStack, Stack } from "@chakra-ui/react";
+import { Flex, HStack, Stack } from "@chakra-ui/react";
 import { Image } from "../Image";
 import { TitleFooter } from "../Title";
 import { TextIndex } from "../Text";
@@ -6,25 +6,72 @@ import { IconSocialMedia } from "../Icons";
 
 export function Footer() {
     return (
-        <HStack
+        <Flex
             as={"footer"}
             bg={"purple"}
             width={"100%"}
             paddingX={4}
             justifyContent={"space-between"}
             marginTop={12}
+            paddingBottom={8}
+            flexDirection={[
+                "column",
+                "column",
+                "column",
+                "column",
+                "column",
+                "row",
+                "row",
+            ]}
+            alignItems={"center"}
+            gap={5}
         >
             <Image src={"/logo_redonda.png"} alt={"Crochê da Lelê"} width={491} height={125} w="15%" />
             <Stack
                 spacing={5}
-                width={"20%"}
+                width={[
+                    "90%",
+                    "90%",
+                    "90%",
+                    "90%",
+                    "90%",
+                    "45%",
+                    "30%",
+                ]}
+                alignItems={[
+                    "center",
+                    "center",
+                    "center",
+                    "center",
+                    "center",
+                    "flex-start",
+                    "flex-start",
+                ]}
             >
                 <TitleFooter title={"Sobre Nós"}></TitleFooter>
                 <TextIndex text={"Maecenas ut felis hendrerit, placerat nisi sit amet, mattis mi. Donec non gravida libero."} size={"20px"} color={"offWhite"}></TextIndex>
             </Stack>
             <Stack
                 spacing={5}
-                width={"20%"}
+                textAlign={"center"}
+                width={[
+                    "90%",
+                    "90%",
+                    "90%",
+                    "90%",
+                    "90%",
+                    "45%",
+                    "30%",
+                ]}
+                alignItems={[
+                    "center",
+                    "center",
+                    "center",
+                    "center",
+                    "center",
+                    "flex-start",
+                    "flex-start",
+                ]}
             >
                 <TitleFooter title={"Contato"}></TitleFooter>
                 <TextIndex text={"(XX) XXXX-XXXX"} size={"16px"} color={"offWhite"}></TextIndex>
@@ -32,8 +79,16 @@ export function Footer() {
             </Stack>
             <Stack
                 spacing={5}
-                width={"20%"}
                 align={"center"}
+                width={[
+                    "90%",
+                    "90%",
+                    "90%",
+                    "90%",
+                    "90%",
+                    "45%",
+                    "30%",
+                ]}
             >
                 <IconSocialMedia size={40} width={"60px"}></IconSocialMedia>
                 <Stack
@@ -43,6 +98,6 @@ export function Footer() {
                     <TextIndex text={"Todos os direitos reservados."} size={"16px"} color={"offWhite"}></TextIndex>
                 </Stack>
             </Stack>
-        </HStack>
+        </Flex>
     )
 }

@@ -18,7 +18,6 @@ export function CardSection({ src, alt, title, width, height, w, id }: CardSecti
     return (
         <Stack
             bg={"turquesa"}
-            width={"30%"}
             height={"395px"}
             boxShadow={"4px 4px 10px 0px rgba(0, 0, 0, 0.25)"}
             paddingX={12}
@@ -27,13 +26,30 @@ export function CardSection({ src, alt, title, width, height, w, id }: CardSecti
             align={"center"}
             justifyContent={"center"}
             spacing={10}
+            width={[
+                "90%",
+                "80%",
+                "80%",
+                "60%",
+                "30%",
+                "30%",
+                "30%",
+            ]}
         >
             <ImageCard src={src} alt={alt} width={width} height={height} w={w} />
             <TitleNavbar title={title} size={"36px"} />
 
             <Link
                 href={"#" + id}
-                width={"80%"}
+                width={[
+                    "100%",
+                    "100%",
+                    "80%",
+                    "80%",
+                    "80%",
+                    "80%",
+                    "80%",
+                ]}
             >
                 <Box
                     as='button'
@@ -65,7 +81,7 @@ export function CardShop({ src, alt, title, text, width, height, color, w }: Car
     return (
         <Stack
             bg={color}
-            width={"30%"}
+            // width={"30%"}
             minHeight={"400px"}
             boxShadow={"4px 4px 10px 0px rgba(0, 0, 0, 0.25)"}
             padding={10}
@@ -73,11 +89,21 @@ export function CardShop({ src, alt, title, text, width, height, color, w }: Car
             align={"center"}
             justifyContent={"center"}
             spacing={12}
+            width={[
+                "90%",
+                "80%",
+                "80%",
+                "60%",
+                "30%",
+                "30%",
+                "30%",
+            ]}
         >
             <ImageCard src={src} alt={alt} width={width} height={height} w={w} />
             <Stack
                 spacing={8}
                 align={"center"}
+                textAlign={"center"}
             >
                 <TitleSection title={title} size={"32px"} />
                 <TextCard text={text} size={"24px"} />
@@ -97,6 +123,18 @@ export function CardContato({ title, text, obs }: CardContatoProps) {
             <Stack
                 spacing={5}
                 align={"center"}
+                textAlign={"center"}
+                width={{
+                    sm:"100%"
+                
+                    // "90%",
+                    // "90%",
+                    // "80%",
+                    // "80%",
+                    // "100%",
+                    // "100%",
+                    // "100%",
+                }}
             >
                 <Stack
                     spacing={3}

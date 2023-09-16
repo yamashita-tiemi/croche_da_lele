@@ -1,5 +1,5 @@
 import NextLink from 'next/link'
-import { HStack, Link } from "@chakra-ui/react"
+import { Flex, HStack, Link, flexbox } from "@chakra-ui/react"
 
 import { Image } from "../Image"
 import { TitleNavbar } from "../Title"
@@ -22,25 +22,34 @@ export function Navbar({ login, href, children }: NavbarProps) {
         // top={0}
         >
             <Image src={"/logo.png"} alt={"Crochê da Lelê"} width={491} height={125} w="20%" />
-            <HStack
-                spacing={10}
+            <Flex
+                gap={"10"}
+                display={[
+                    "none",
+                    "none",
+                    "none",
+                    "none",
+                    "flex",
+                    "flex",
+                    "flex"
+                ]}
             >
                 <Link as={NextLink} href='/' color='lilac'>
-                    <TitleNavbar title={"Home"} size={"32px"} />
+                    <TitleNavbar title={"Home"} size={"28px"} />
                 </Link>
                 <Link as={NextLink} href='/contato' color='lilac'>
-                    <TitleNavbar title={"Contato"} size={"32px"} />
+                    <TitleNavbar title={"Contato"} size={"28px"} />
                 </Link>
                 <Link as={NextLink} href='/membros' color='lilac'>
-                    <TitleNavbar title={"Membros"} size={"32px"} />
+                    <TitleNavbar title={"Membros"} size={"28px"} />
                 </Link>
-            </HStack>
+            </Flex>
             <HStack
                 w={"20%"}
                 justifyContent={"flex-end"}
             >
                 <Link as={NextLink} href={href} color='lilac'>
-                    <TitleNavbar title={login} size={"32px"} />
+                    <TitleNavbar title={login} size={"28px"} />
                 </Link>
                 {children}
             </HStack>

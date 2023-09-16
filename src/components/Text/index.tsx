@@ -14,7 +14,16 @@ export function TextIndex({ text, size, color, w }: TextIndexProps) {
             fontSize={size}
             fontWeight={400}
             color={color}
-            w={w}
+            // w={w}
+            w={[
+                "90%",
+                "85%",
+                "80%",
+                "70%",
+                "70%",
+                "70%",
+                "80%"
+            ]}
         >
             {text}
         </Heading>
@@ -35,7 +44,7 @@ export function TextCard({ text, size, w }: TextCardProps) {
             fontWeight={400}
             color={"offWhite"}
             textShadow={"4px 4px 15px rgba(0, 0, 0, 0.45)"}
-            w={w}
+            width={"100%"}
         >
             {text}
         </Heading>

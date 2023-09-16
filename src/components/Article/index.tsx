@@ -1,4 +1,4 @@
-import { HStack, Stack } from "@chakra-ui/react";
+import { Flex, HStack, Stack } from "@chakra-ui/react";
 import { TextIndex } from "../Text";
 import { TitleSection } from "../Title";
 import { CardSection, CardShop } from "../Card";
@@ -34,20 +34,32 @@ export function ArticleIndexSecundary() {
         <Stack
             as="article"
             width={"100%"}
-            height={"710px"}
+            minHeight={"710px"}
             align={"center"}
             paddingTop={20}
             spacing={32}
+            textAlign={"center"}
         >
             <TitleSection title={"Nossos Produtos"} size={"48px"} />
-            <HStack
+            <Flex
                 width={"100%"}
                 justifyContent={"space-around"}
+                gap={10}
+                alignItems={"center"}
+                flexDirection={[
+                    "column",
+                    "column",
+                    "column",
+                    "column",
+                    "row",
+                    "row",
+                    "row",
+                ]}
             >
                 <CardSection src={"/bolsas.png"} alt={""} title={"Bolsas"} width={120} height={125} id={"Bolsas"}/>
                 <CardSection src={"/croppeds.png"} alt={""} title={"Croppeds"} width={120} height={125} id={"Croppeds"}/>
                 <CardSection src={"/vestidos.png"} alt={""} title={"Vestidos"} width={120} height={125} id={"Vestidos"} />
-            </HStack>
+            </Flex>
         </Stack>
     )
 }
@@ -62,16 +74,35 @@ export function ArticleIndexTerciary() {
             paddingTop={20}
             paddingBottom={32}
             spacing={16}
+            textAlign={"center"}
         >
             <TitleSection title={"Crie laços, entrelaçe paixão"} size={"48px"} />
-            <HStack
+            <Flex
                 width={"95%"}
                 justifyContent={"space-between"}
+                flexDirection={[
+                    "column",
+                    "column",
+                    "column",
+                    "column",
+                    "row",
+                    "row",
+                    "row",
+                ]}
+                alignItems={[
+                    "center",
+                    "center",
+                    "center",
+                    "center",
+                    "default",
+                    "default",
+                    "default"
+                ]}
             >
                 <SectionIndexTerciaryLeft></SectionIndexTerciaryLeft>
                 <Image src={"/index_3.png"} alt={""} width={378} height={474} w="30%"/>
                 <SectionIndexTerciaryRight></SectionIndexTerciaryRight>
-            </HStack>
+            </Flex>
         </Stack>
     )
 }
@@ -117,17 +148,37 @@ export function ArticleShop({ title, color, colorCard, src1, alt1, titleItem1, p
             paddingBottom={32}
             spacing={20}
             id={id}
+            textAlign={"center"}
         >
             <TitleSection title={title} size={"48px"} />
 
-            <HStack
+            <Flex
                 width={"90%"}
                 justifyContent={"space-between"}
+                gap={5}
+                flexDirection={[
+                    "column",
+                    "column",
+                    "column",
+                    "column",
+                    "row",
+                    "row",
+                    "row",
+                ]}
+                alignItems={[
+                    "center",
+                    "center",
+                    "center",
+                    "center",
+                    "default",
+                    "default",
+                    "default"
+                ]}
             >
                 <CardShop src={src1} alt={alt1} width={width1} height={height1} title={titleItem1} text={price1} color={colorCard} w={w1}></CardShop>
                 <CardShop src={src2} alt={alt2} width={width2} height={height2} title={titleItem2} text={price2} color={colorCard} w={w2}></CardShop>
                 <CardShop src={src3} alt={alt3} width={width3} height={height3} title={titleItem3} text={price3} color={colorCard} w={w3}></CardShop>
-            </HStack>
+            </Flex>
             
         </Stack>
     )

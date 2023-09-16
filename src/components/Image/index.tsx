@@ -15,6 +15,7 @@ export function Image({ src, alt, width, height, w }:ImageProps) {
             as="picture"
             w={w}
             align={"center"}
+            minWidth={"200px"}
         >
             <NextImage src={src} alt={alt} width={width} height={height} />
         </Stack>
