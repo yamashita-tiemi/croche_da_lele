@@ -1,10 +1,13 @@
-import { TableContainer, Thead, Tr, Th, Tbody, Td, Table, useDisclosure, Button, FormControl, FormLabel, HStack, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalOverlay } from "@chakra-ui/react";
+import { TableContainer, Thead, Tr, Th, Tbody, Td, Table, useDisclosure, Button, FormControl, FormLabel, HStack, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalOverlay, Stack, ModalFooter } from "@chakra-ui/react";
 import { ModalCRUD } from "../Modal";
 
 import { useEffect, useState } from "react";
 import 'react-toastify/dist/ReactToastify.css';
 import React from "react";
-import { IconSocialCRUD } from "../Icons";
+import { Icon, IconSocialCRUD } from "../Icons";
+import { BiSolidPencil } from "react-icons/bi";
+import { FaTrash } from "react-icons/fa";
+import { TextIndex } from "../Text";
 
 const APIURL = "http://localhost:3001/membros";
 
@@ -72,9 +75,10 @@ export function TableMembros() {
 }
 
 export function TableAdmin() {
-    const { isOpen: isOpenView, onOpen: onOpenView, onClose: onCloseView } = useDisclosure()
     const { isOpen: isOpenEdit, onOpen: onOpenEdit, onClose: onCloseEdit } = useDisclosure()
     const { isOpen: isOpenDelete, onOpen: onOpenDelete, onClose: onCloseDelete } = useDisclosure()
+
+    var [membroModal, setMembroModal] = useState<Partial<Membro>>({})
 
     const initialRef = React.useRef(null)
 
@@ -117,6 +121,10 @@ export function TableAdmin() {
     }
 
     const handleSaveEdit = async (memberId: number) => {
+        if (memberId == 0) {
+            console.error('Id inválido');
+            return
+        }
 
         const response = await fetch(`${APIURL}/${memberId}`, {
             method: "PATCH",
@@ -140,36 +148,136 @@ export function TableAdmin() {
         setEditMembroId(memberId)
     }
 
-    return (
-        <TableContainer
-            bg={"offWhite"}
-            width={"100%"}
-        >
-            <Table variant='striped' color="purple">
-                <Thead bg={"purple"}>
-                    <Tr>
-                        <Th color={"offWhite"} fontSize={"20px"} width={"18%"} textAlign={"center"}>Nome</Th>
-                        <Th color={"offWhite"} fontSize={"20px"} width={"18%"} textAlign={"center"}>Cargo</Th>
-                        <Th color={"offWhite"} fontSize={"20px"} width={"18%"} textAlign={"center"}>Email</Th>
-                        <Th color={"offWhite"} fontSize={"20px"} width={"18%"} textAlign={"center"}>Aniversário</Th>
-                        <Th color={"offWhite"} fontSize={"20px"} width={"28%"} textAlign={"center"}></Th>
-                    </Tr>
-                </Thead>
-                <Tbody overflow={"scroll"}>
-                    {membros.map((membro, index) => (
-                        <Tr>
-                            <Td textAlign={"center"}>{membro.name}</Td>
-                            <Td textAlign={"center"}>{membro.cargo}</Td>
-                            <Td textAlign={"center"}>{membro.email}</Td>
-                            <Td textAlign={"center"}>{membro.aniversario}</Td>
+    const handleOpenModal = (membroModal: Membro) => {
+        setMembroModal(membroModal)
+        onOpenEdit()
+    }
 
-                            <Td textAlign={"center"}>
-                                <IconSocialCRUD onOpenView={onOpenView} onOpenEdit={onOpenEdit} onOpenDelete={onOpenDelete} />
-                            </Td>
+    return (
+
+        <Stack>
+            <ModalCRUD></ModalCRUD>
+            <TableContainer
+                bg={"offWhite"}
+                width={"100%"}
+            >
+                <Table variant='striped' color="purple">
+                    <Thead bg={"purple"}>
+                        <Tr>
+                            <Th color={"offWhite"} fontSize={"20px"} width={"18%"} textAlign={"center"}>Nome</Th>
+                            <Th color={"offWhite"} fontSize={"20px"} width={"18%"} textAlign={"center"}>Cargo</Th>
+                            <Th color={"offWhite"} fontSize={"20px"} width={"18%"} textAlign={"center"}>Email</Th>
+                            <Th color={"offWhite"} fontSize={"20px"} width={"18%"} textAlign={"center"}>Aniversário</Th>
+                            <Th color={"offWhite"} fontSize={"20px"} width={"28%"} textAlign={"center"}></Th>
                         </Tr>
-                    ))}
-                </Tbody>
-            </Table>
-        </TableContainer>
+                    </Thead>
+                    <Tbody overflow={"scroll"}>
+                        {membros.map((membro, index) => (
+                            <Tr>
+                                <Td textAlign={"center"}>{membro.name}</Td>
+                                <Td textAlign={"center"}>{membro.cargo}</Td>
+                                <Td textAlign={"center"}>{membro.email}</Td>
+                                <Td textAlign={"center"}>{membro.aniversario}</Td>
+                                <Td textAlign={"center"}>
+                                    {/* <IconSocialCRUD onOpenView={onOpenView} onOpenEdit={onOpenEdit} onOpenDelete={onOpenDelete} /> */}
+                                    <HStack justifyContent={"center"}>
+                                        <Button onClick={function () { handleOpenModal(membro) }} bg={"none"}>
+                                            <Icon width={"40px"} colorBg={"#EAA800"} color={"offWhite"}>
+                                                <BiSolidPencil size={28} />
+                                            </Icon>
+                                        </Button>
+                                        <Button onClick={onOpenDelete} bg={"none"}>
+                                            <Icon width={"40px"} colorBg={"#D00"} color={"offWhite"}>
+                                                <FaTrash size={20} />
+                                            </Icon>
+                                        </Button>
+                                    </HStack>
+                                </Td>
+                            </Tr>
+                        ))}
+                    </Tbody>
+                </Table>
+            </TableContainer>
+
+            {/* ------ Modal Edit ------ */}
+            <Modal
+                initialFocusRef={initialRef}
+                isOpen={isOpenEdit}
+                onClose={onCloseEdit}
+                isCentered
+            >
+                <ModalOverlay />
+                <ModalContent>
+                    <ModalCloseButton />
+                    <ModalBody pb={6} pt={16}>
+                        <form>
+                            <FormControl>
+                                <FormLabel>Nome</FormLabel>
+                                <Input
+                                    ref={initialRef}
+                                    name="name"
+                                    type="text"
+                                    value={novoMembro.name || membroModal.name}
+                                    onChange={handleInputChange}
+                                    placeholder='Digite o nome'
+                                />
+                                <FormLabel>Cargo</FormLabel>
+                                <Input
+                                    name="cargo"
+                                    type="text"
+                                    value={novoMembro.cargo || membroModal.cargo}
+                                    onChange={handleInputChange}
+                                    placeholder='Digite o cargo'
+                                />
+                                <FormLabel>Email</FormLabel>
+                                <Input
+                                    name="email"
+                                    type="email"
+                                    value={novoMembro.email || membroModal.email}
+                                    onChange={handleInputChange}
+                                    placeholder='Digite o email'
+                                />
+                                <FormLabel>Aniversário</FormLabel>
+                                <Input
+                                    name="aniversario"
+                                    type="text"
+                                    value={novoMembro.aniversario || membroModal.aniversario}
+                                    onChange={handleInputChange}
+                                    placeholder='Digite o aniversario'
+                                />
+                            </FormControl>
+                            <HStack
+                                justifyContent={"flex-end"}
+                                marginTop={10}
+                            >
+                                <Button type="submit" onClick={function(event) {event.preventDefault();handleSaveEdit(membroModal.id || 0)}} colorScheme='blue'>
+                                    Salvar
+                                </Button>
+                                <Button onClick={onCloseEdit}>Fechar</Button>
+                            </HStack>
+                        </form>
+                    </ModalBody>
+                </ModalContent>
+            </Modal>
+
+            {/* ----- Modal Delete ------ */}
+            <Modal isOpen={isOpenDelete} onClose={onCloseDelete} isCentered>
+                <ModalOverlay />
+                <ModalContent>
+                    <ModalCloseButton />
+                    <ModalBody pb={12} pt={16}>
+                        <TextIndex text={"Tem certeza que deseja excluir?"} size={"24px"} color={"#000"}></TextIndex>
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button colorScheme='gray' mr={3} onClick={onCloseDelete}>
+                            Fechar
+                        </Button>
+                        <Button colorScheme='red' mr={3}>
+                            Excluir
+                        </Button>
+                    </ModalFooter>
+                </ModalContent>
+            </Modal>
+        </Stack>
     )
 }
