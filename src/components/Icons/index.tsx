@@ -64,29 +64,9 @@ export function IconSocialMedia({ size, width }:IconSocialMediaProps) {
 }
 
 interface IconSocialCRUDProps {
-    onOpenView: any
+    // onOpenView: any
     onOpenEdit: any
     onOpenDelete: any
-}
-
-export function IconSocialCRUD({ onOpenView, onOpenEdit, onOpenDelete }: IconSocialCRUDProps) {
-    return (
-        <HStack justifyContent={"center"}>
-            <Button onClick={onOpenView} bg={"none"}>
-                <Icon width={"40px"} colorBg={"#0496E9"} color={"offWhite"}>
-                    <BsEyeFill size={28} />
-                </Icon>
-            </Button>
-            <Button onClick={onOpenEdit} bg={"none"}>
-                <Icon width={"40px"} colorBg={"#EAA800"} color={"offWhite"}>
-                    <BiSolidPencil size={28} />
-                </Icon>
-            </Button>
-            <Button onClick={onOpenDelete} bg={"none"}>
-                <Icon width={"40px"} colorBg={"#D00"} color={"offWhite"}>
-                    <FaTrash size={20} />
-                </Icon>
-            </Button>
-        </HStack>
-    )
+    id1: string
+    id2: string
 }

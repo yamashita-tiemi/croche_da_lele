@@ -105,19 +105,17 @@ export function TableAdmin() {
     }
 
     const handleDelete = async (memberId: number) => {
-        const confirmDelete = window.confirm("Tem certeza que deeja excluir?")
-        if (confirmDelete) {
             const response = await fetch(`${APIURL}/${memberId}`, {
                 method: "DELETE"
             })
             if (response.ok) {
                 alert("Membro excluido com sucesso")
                 getMembros()
+                onCloseDelete()
             }
             else {
                 alert("Erro ao tentar deletar")
             }
-        }
     }
 
     const handleSaveEdit = async (memberId: number) => {
@@ -150,13 +148,12 @@ export function TableAdmin() {
 
     const handleOpenModal = (membroModal: Membro) => {
         setMembroModal(membroModal)
-        onOpenEdit()
     }
 
     return (
 
         <Stack>
-            <ModalCRUD></ModalCRUD>
+            {/* <ModalCRUD></ModalCRUD> */}
             <TableContainer
                 bg={"offWhite"}
                 width={"100%"}
@@ -179,14 +176,13 @@ export function TableAdmin() {
                                 <Td textAlign={"center"}>{membro.email}</Td>
                                 <Td textAlign={"center"}>{membro.aniversario}</Td>
                                 <Td textAlign={"center"}>
-                                    {/* <IconSocialCRUD onOpenView={onOpenView} onOpenEdit={onOpenEdit} onOpenDelete={onOpenDelete} /> */}
                                     <HStack justifyContent={"center"}>
-                                        <Button onClick={function () { handleOpenModal(membro) }} bg={"none"}>
+                                        <Button onClick={function () { handleOpenModal(membro); onOpenEdit()}} bg={"none"}>
                                             <Icon width={"40px"} colorBg={"#EAA800"} color={"offWhite"}>
                                                 <BiSolidPencil size={28} />
                                             </Icon>
                                         </Button>
-                                        <Button onClick={onOpenDelete} bg={"none"}>
+                                        <Button onClick={function () { handleOpenModal(membro), onOpenDelete() }} bg={"none"}>
                                             <Icon width={"40px"} colorBg={"#D00"} color={"offWhite"}>
                                                 <FaTrash size={20} />
                                             </Icon>
@@ -269,10 +265,10 @@ export function TableAdmin() {
                         <TextIndex text={"Tem certeza que deseja excluir?"} size={"24px"} color={"#000"}></TextIndex>
                     </ModalBody>
                     <ModalFooter>
-                        <Button colorScheme='gray' mr={3} onClick={onCloseDelete}>
+                        <Button colorScheme='gray' mr={3}>
                             Fechar
                         </Button>
-                        <Button colorScheme='red' mr={3}>
+                        <Button onClick={function(event) {onOpenDelete();handleDelete(membroModal.id || 0)}} colorScheme='red' mr={3}>
                             Excluir
                         </Button>
                     </ModalFooter>
