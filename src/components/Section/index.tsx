@@ -420,8 +420,8 @@ export function SectionAdmin() {
                     xs: "95%",
                     sm: "90%",
                     md: "90%",
-                    lg: "80%",
-                    xl: "80%"
+                    lg: "90%",
+                    xl: "90%"
                 }}
             >
                 <ModalCreate></ModalCreate>
