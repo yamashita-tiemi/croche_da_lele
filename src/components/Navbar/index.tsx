@@ -57,13 +57,13 @@ export function Navbar({ login, href, children }: NavbarProps) {
                     "none",
                     "none",
                     "none",
-                    "flex",
+                    "none",
                     "flex",
                     "flex"
                 ]}
             >
                 <Link as={NextLink} href={href} color='lilac'>
-                    <TitleNavbar title={login} size={"28px"} color={''} />
+                    <TitleNavbar title={login} size={"28px"}/>
                 </Link>
                 {children}
             </Flex>
@@ -72,7 +72,7 @@ export function Navbar({ login, href, children }: NavbarProps) {
                 "flex",
                 "flex",
                 "flex",
-                "none",
+                "flex",
                 "none",
                 "none"
             ]}>
@@ -95,7 +95,7 @@ export function Navbar({ login, href, children }: NavbarProps) {
                             <ButtonSidebar href={'/'} title={'Home'}/>
                             <ButtonSidebar href={'/contato'} title={'Contato'}/>
                             <ButtonSidebar href={'/membros'} title={'Membros'}/>
-                            <ButtonSidebar href={'/login'} title={'Login'}/>
+                            <ButtonSidebar href={href} title={login}/>
                         </DrawerBody>
                     </DrawerContent>
                 </Drawer>

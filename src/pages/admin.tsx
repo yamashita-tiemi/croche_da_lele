@@ -9,7 +9,7 @@ export default function Membros() {
       <Stack
         spacing={0}
       >
-        <Navbar login={"Login"} href={"/login"} children={<IconLogOut/>}></Navbar>
+        <Navbar login={"Gerenciamento"} href={"/admin"} children={<IconLogOut/>}></Navbar>
         <SectionAdmin></SectionAdmin>
         <Footer></Footer>
       </Stack>
