@@ -1,6 +1,5 @@
 import { MdEmail, MdSupportAgent } from "react-icons/md";
 import { Accordion, Box, Flex, FormControl, FormLabel, HStack, Input, Stack } from "@chakra-ui/react";
-import NextImage from 'next/image';
 
 import { TextIndex } from "../Text";
 import { ArticleContatoPrimary, ArticleIndexPrimary } from "../Article";
@@ -8,9 +7,8 @@ import { Image } from "../Image";
 import { TitleSection } from "../Title";
 import { ButtonAccordion, ButtonLogin } from "../Button";
 import { CardContato } from "../Card";
-import { TableAdmin, TableMembros } from '../Table';
+import { TableMembros } from '../Table';
 import { Icon, IconSocialMedia } from "../Icons";
-import { ModalCreate } from "../Modal";
 
 export function SectionIndexPrimary() {
     return (
@@ -395,38 +393,6 @@ export function SectionMembros() {
         >
             <TitleSection title={"Nossos Colaboradores"} size={"48px"} />
             <TableMembros></TableMembros>
-        </Stack>
-    )
-}
-
-export function SectionAdmin() {
-    return (
-        <Stack
-            as="section"
-            width={"100%"}
-            // height={"710px"}
-            align={"center"}
-            paddingTop={24}
-            spacing={10}
-            textAlign={"center"}
-        >
-            <TitleSection title={"Lista de Membros"} size={"48px"} />
-            <Stack
-                align={"flex-start"}
-                spacing={5}
-                width={{
-                    base: "95%",
-                    fold: "95%",
-                    xs: "95%",
-                    sm: "90%",
-                    md: "90%",
-                    lg: "90%",
-                    xl: "90%"
-                }}
-            >
-                <ModalCreate></ModalCreate>
-                <TableAdmin></TableAdmin>
-            </Stack>
         </Stack>
     )
 }
