@@ -1,9 +1,7 @@
 import { HiMiniShoppingBag } from "react-icons/hi2";
 import { TbLogout } from "react-icons/tb";
-import { FaInstagram, FaWhatsapp, FaTiktok, FaTrash } from "react-icons/fa";
-import { BsEyeFill } from "react-icons/bs";
-import { BiSolidPencil } from "react-icons/bi";
-import { Button, HStack, Stack } from "@chakra-ui/react";
+import { FaInstagram, FaWhatsapp, FaTiktok } from "react-icons/fa";
+import { HStack, Stack } from "@chakra-ui/react";
 
 interface IconProps {
     width: string
@@ -61,12 +59,4 @@ export function IconSocialMedia({ size, width }:IconSocialMediaProps) {
             <Icon width={width} colorBg={"offWhite"} color={"#000"}><FaTiktok size={size}/></Icon>
         </HStack>
     )
-}
-
-interface IconSocialCRUDProps {
-    // onOpenView: any
-    onOpenEdit: any
-    onOpenDelete: any
-    id1: string
-    id2: string
 }

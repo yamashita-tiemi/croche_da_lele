@@ -1,10 +1,9 @@
 import { TableContainer, Thead, Tr, Th, Tbody, Td, Table, useDisclosure, Button, FormControl, FormLabel, HStack, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalOverlay, Stack, ModalFooter } from "@chakra-ui/react";
-import { ModalCRUD } from "../Modal";
 
 import { useEffect, useState } from "react";
 import 'react-toastify/dist/ReactToastify.css';
 import React from "react";
-import { Icon, IconSocialCRUD } from "../Icons";
+import { Icon } from "../Icons";
 import { BiSolidPencil } from "react-icons/bi";
 import { FaTrash } from "react-icons/fa";
 import { TextIndex } from "../Text";
@@ -87,42 +86,49 @@ export function TableAdmin() {
     const [editMembroId, setEditMembroId] = useState<number | null>(null)
 
     const getMembros = async () => {
-        const response = await fetch(APIURL)
+        const response = await fetch(APIURL);
         if (!response.ok) {
-            console.error("Nao ao carregar dados")
+            console.error("Erro ao carregar dados");
         }
-        const data: Membro[] = await response.json()
-        setMembros(data)
+        const data: Membro[] = await response.json();
+        setMembros(data);
     }
 
     useEffect(() => {
-        getMembros()
+        getMembros();
     }, [])
 
+    const validate = (memberId: number) => {
+        if (memberId == 0) {
+            console.error('Id inválido');
+            return;
+        }
+    }
+
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = event.target
-        setNovoMembro((prevMembro) => ({ ...prevMembro, [name]: value }))
+        const { name, value } = event.target;
+        setNovoMembro((prevMembro) => ({ ...prevMembro, [name]: value }));
     }
 
     const handleDelete = async (memberId: number) => {
-            const response = await fetch(`${APIURL}/${memberId}`, {
-                method: "DELETE"
-            })
-            if (response.ok) {
-                alert("Membro excluido com sucesso")
-                getMembros()
-                onCloseDelete()
-            }
-            else {
-                alert("Erro ao tentar deletar")
-            }
+        validate(memberId);
+
+        const response = await fetch(`${APIURL}/${memberId}`, {
+            method: "DELETE"
+        });
+
+        if (response.ok) {
+            alert("Membro excluido com sucesso");
+            getMembros();
+            onCloseDelete();
+        }
+        else {
+            alert("Erro ao tentar deletar");
+        }
     }
 
     const handleSaveEdit = async (memberId: number) => {
-        if (memberId == 0) {
-            console.error('Id inválido');
-            return
-        }
+        validate(memberId);
 
         const response = await fetch(`${APIURL}/${memberId}`, {
             method: "PATCH",
@@ -130,30 +136,26 @@ export function TableAdmin() {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(novoMembro)
-        })
+        });
+
         if (response.ok) {
-            alert("Membro editado com sucesso")
-            setEditMembroId(null)
-            setNovoMembro({})
-            getMembros()
+            alert("Membro editado com sucesso");
+            setEditMembroId(null);
+            setNovoMembro({});
+            getMembros();
         }
         else {
-            alert("Erro ao tentar editar")
+            alert("Erro ao tentar editar");
         }
-    }
-
-    const handleEdit = (memberId: number) => {
-        setEditMembroId(memberId)
     }
 
     const handleOpenModal = (membroModal: Membro) => {
-        setMembroModal(membroModal)
+        setMembroModal(membroModal);
+        onOpenEdit();
     }
 
     return (
-
         <Stack>
-            {/* <ModalCRUD></ModalCRUD> */}
             <TableContainer
                 bg={"offWhite"}
                 width={"100%"}
@@ -177,7 +179,7 @@ export function TableAdmin() {
                                 <Td textAlign={"center"}>{membro.aniversario}</Td>
                                 <Td textAlign={"center"}>
                                     <HStack justifyContent={"center"}>
-                                        <Button onClick={function () { handleOpenModal(membro); onOpenEdit()}} bg={"none"}>
+                                        <Button onClick={function () { handleOpenModal(membro) }} bg={"none"}>
                                             <Icon width={"40px"} colorBg={"#EAA800"} color={"offWhite"}>
                                                 <BiSolidPencil size={28} />
                                             </Icon>
@@ -194,6 +196,7 @@ export function TableAdmin() {
                     </Tbody>
                 </Table>
             </TableContainer>
+
 
             {/* ------ Modal Edit ------ */}
             <Modal
@@ -246,7 +249,7 @@ export function TableAdmin() {
                                 justifyContent={"flex-end"}
                                 marginTop={10}
                             >
-                                <Button type="submit" onClick={function(event) {event.preventDefault();handleSaveEdit(membroModal.id || 0)}} colorScheme='blue'>
+                                <Button type="submit" onClick={function (event) { event.preventDefault(); handleSaveEdit(membroModal.id || 0) }} colorScheme='blue'>
                                     Salvar
                                 </Button>
                                 <Button onClick={onCloseEdit}>Fechar</Button>
@@ -268,7 +271,7 @@ export function TableAdmin() {
                         <Button colorScheme='gray' mr={3}>
                             Fechar
                         </Button>
-                        <Button onClick={function(event) {onOpenDelete();handleDelete(membroModal.id || 0)}} colorScheme='red' mr={3}>
+                        <Button onClick={function (event) { onOpenDelete(); handleDelete(membroModal.id || 0) }} colorScheme='red' mr={3}>
                             Excluir
                         </Button>
                     </ModalFooter>
