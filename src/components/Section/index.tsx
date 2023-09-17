@@ -1,8 +1,9 @@
 import { MdEmail, MdSupportAgent } from "react-icons/md";
 import { Accordion, Box, Flex, FormControl, FormLabel, HStack, Input, Stack } from "@chakra-ui/react";
+import NextImage from 'next/image';
 
 import { TextIndex } from "../Text";
-import { ArticleIndexPrimary } from "../Article";
+import { ArticleContatoPrimary, ArticleIndexPrimary } from "../Article";
 import { Image } from "../Image";
 import { TitleSection } from "../Title";
 import { ButtonAccordion, ButtonLogin } from "../Button";
@@ -19,7 +20,15 @@ export function SectionIndexPrimary() {
             width={"100%"}
             height={"720px"}
             bgRepeat={"no-repeat"}
-            justifyContent={"flex-end"}
+            justifyContent={[
+                "center",
+                "center",
+                "center",
+                "flex-end",
+                "flex-end",
+                "flex-end",
+                "flex-end"
+            ]}
             paddingBottom={10}
         >
             <ArticleIndexPrimary
@@ -67,7 +76,7 @@ export function SectionIndexTerciaryLeft() {
             <TextIndex text={"Do conforto à moda"} size={"32px"} color={"offWhite"} />
 
             <Stack
-            
+
                 spacing={5}
                 width={"100%"}
                 textAlign={[
@@ -89,7 +98,7 @@ export function SectionIndexTerciaryLeft() {
                     "flex-start",
                 ]}
             >
-                <TextIndex text={"Extraordinário"} size={"32px"} color={"offWhite"}  />
+                <TextIndex text={"Extraordinário"} size={"32px"} color={"offWhite"} />
                 <TextIndex text={"Exclusivos"} size={"32px"} color={"offWhite"} />
                 <TextIndex text={"Elegância"} size={"32px"} color={"offWhite"} />
                 <TextIndex text={"Arte"} size={"32px"} color={"offWhite"} />
@@ -111,7 +120,7 @@ export function SectionIndexTerciaryRight() {
                 "90%",
                 "90%",
                 "90%",
-                "30%",
+                "40%",
                 "30%",
                 "30%",
             ]}
@@ -135,7 +144,7 @@ export function SectionIndexTerciaryRight() {
             ]}
         >
             <TextIndex text={"Aconchego artesanal"} size={"32px"} color={"offWhite"} />
-            <TextIndex text={"Do conforto à moda, nossos crochês dão vida a cada ponto, transformando o comum em extraordinário."} size={"32px"} color={"offWhite"} w="80%" />
+            <TextIndex text={"Do conforto à moda, nossos crochês dão vida a cada ponto, transformando o comum em extraordinário."} size={"32px"} color={"offWhite"}/>
 
         </Stack>
     )
@@ -143,29 +152,43 @@ export function SectionIndexTerciaryRight() {
 
 export function SectionContatoPrimary() {
     return (
-        <HStack
+        <Flex
             as="section"
             bg={"purple"}
-            spacing={0}
-            height={"539px"}
+            gap={0}
+            minHeight={"539px"}
+            flexDirection={[
+                "column",
+                "column",
+                "column",
+                "column",
+                "column",
+                "row",
+                "row",
+            ]}
         >
             <Stack
                 as="section"
-                width={"60%"}
+                width={[
+                    "100%",
+                    "100%",
+                    "100%",
+                    "100%",
+                    "100%",
+                    "60%",
+                    "60%"
+                ]}
                 height={"100%"}
                 justifyContent={"center"}
-            // paddingBottom={10}
             >
-                <ArticleIndexPrimary
+                <ArticleContatoPrimary
                     text1={"Feito com fios, amor e inspiração: vista a originalidade dos crochês que cativam olhares."}
                     text2={"Cada ponto é uma expressão, cada peça é uma história."}
                     text3={"Crochês feitos à mão..."}
-                    w1="55%"
-                    w2="70%"
-                ></ArticleIndexPrimary>
+                ></ArticleContatoPrimary>
             </Stack>
             <Image src={"/contato.png"} alt={""} width={572} height={539} />
-        </HStack>
+        </Flex>
     )
 }
 
@@ -264,11 +287,11 @@ export function SectionContatoSecondary() {
                     p={4}
                 >
                     <Icon width={"100px"} colorBg={"purple"} color={"offWhite"} margin={"auto"} marginBottom={"25px"}>
-                        <MdEmail size={80} />
+                        <MdEmail size={65} />
                     </Icon>
                     <CardContato title={"Email"} text={"croche_da_lele@gmail.com"}></CardContato>
                 </Box>
-                <IconSocialMedia size={60} width={"100px"}></IconSocialMedia>
+                <IconSocialMedia size={60} width={"88px"}></IconSocialMedia>
             </Stack>
         </Flex>
     )
@@ -279,20 +302,31 @@ export function SectionLogin() {
         <Stack
             as="section"
             bg={"offWhite"}
-            width={"65%"}
+            width={{
+                base: "95%",
+                fold: "95%",
+                xs: "95%",
+                sm: "80%",
+                md: "80%",
+                lg: "65%",
+                xl: "65%"
+            }}
             align={"center"}
             borderRadius={"16px"}
             spacing={16}
-            marginTop={32}
+            marginTop={20}
             paddingBottom={10}
         >
             <Box
                 bg={"purple"}
                 width={"100%"}
                 borderRadius={"16px 16px 0 0"}
-                align={"center"}
+                minHeight={"120px"}
+                display={"flex"}
+                alignItems={"center"}
+                justifyContent={"center"}
             >
-                <Image src={"/logo_redonda.png"} alt={""} width={500} height={500} w="15%" />
+                <Image src={"/logo_redonda.png"} alt={""} width={300} height={300} w="10%" />
             </Box>
             <FormControl
                 isRequired
@@ -301,24 +335,50 @@ export function SectionLogin() {
                 flexDirection={"column"}
                 alignItems={"center"}
             >
-                <HStack
+                <Flex
                     width={"100%"}
-                    spacing={4}
+                    gap={4}
                     justifyContent={"space-between"}
+                    alignItems={"center"}
                     marginBottom={20}
+                    flexDirection={{
+                        base: "column",
+                        fold: "column",
+                        xs: "column",
+                        sm: "column",
+                        md: "column",
+                        lg: "row",
+                        xl: "row"
+                    }}
                 >
-                    <Stack width={"45%"}>
+                    <Stack width={{
+                        base: "100%",
+                        fold: "100%",
+                        xs: "80%",
+                        sm: "80%",
+                        md: "80%",
+                        lg: "45%",
+                        xl: "45%"
+                    }}>
                         <FormLabel>Email</FormLabel>
                         <Input type='email' placeholder='Digite o email' padding={6} />
                     </Stack>
-                    <Stack width={"45%"}>
+                    <Stack width={{
+                        base: "100%",
+                        fold: "100%",
+                        xs: "80%",
+                        sm: "80%",
+                        md: "80%",
+                        lg: "45%",
+                        xl: "45%"
+                    }}>
                         <FormLabel>Senha</FormLabel>
                         <Input type='password' placeholder='Digite a senha' padding={6} />
                     </Stack>
-                </HStack>
+                </Flex>
                 <ButtonLogin title={'Login'} w='30%'></ButtonLogin>
             </FormControl>
-        </Stack>
+        </Stack >
     )
 }
 
@@ -352,9 +412,17 @@ export function SectionAdmin() {
         >
             <TitleSection title={"Lista de Membros"} size={"48px"} />
             <Stack
-                width={"80%"}
                 align={"flex-start"}
                 spacing={5}
+                width={{
+                    base: "95%",
+                    fold: "95%",
+                    xs: "95%",
+                    sm: "90%",
+                    md: "90%",
+                    lg: "80%",
+                    xl: "80%"
+                }}
             >
                 <ModalCreate></ModalCreate>
                 <TableAdmin></TableAdmin>

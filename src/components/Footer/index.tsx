@@ -14,6 +14,7 @@ export function Footer() {
             justifyContent={"space-between"}
             marginTop={12}
             paddingBottom={8}
+            paddingTop={4}
             flexDirection={[
                 "column",
                 "column",
@@ -24,9 +25,9 @@ export function Footer() {
                 "row",
             ]}
             alignItems={"center"}
-            gap={5}
+            gap={10}
         >
-            <Image src={"/logo_redonda.png"} alt={"Crochê da Lelê"} width={491} height={125} w="15%" />
+            <Image src={"/logo_redonda.png"} alt={"Crochê da Lelê"} width={491} height={125} w="10%" />
             <Stack
                 spacing={5}
                 width={[
@@ -46,6 +47,15 @@ export function Footer() {
                     "center",
                     "flex-start",
                     "flex-start",
+                ]}
+                textAlign={[
+                    "center",
+                    "center",
+                    "center",
+                    "center",
+                    "center",
+                    "start",
+                    "start",
                 ]}
             >
                 <TitleFooter title={"Sobre Nós"}></TitleFooter>
@@ -93,6 +103,8 @@ export function Footer() {
                 <IconSocialMedia size={40} width={"60px"}></IconSocialMedia>
                 <Stack
                     align={"center"}
+                    width={"100%"}
+                    textAlign={"center"}
                 >
                     <TextIndex text={"CodeJr ©Copyright 2023."} size={"16px"} color={"offWhite"}></TextIndex>
                     <TextIndex text={"Todos os direitos reservados."} size={"16px"} color={"offWhite"}></TextIndex>

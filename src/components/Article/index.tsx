@@ -1,5 +1,5 @@
 import { Flex, HStack, Stack } from "@chakra-ui/react";
-import { TextIndex } from "../Text";
+import { TextIndex, TextIndexPrimary } from "../Text";
 import { TitleSection } from "../Title";
 import { CardSection, CardShop } from "../Card";
 import { SectionIndexTerciaryLeft, SectionIndexTerciaryRight } from "../Section";
@@ -9,22 +9,32 @@ interface ArticleIndexPrimaryProps {
     text1: string
     text2: string
     text3: string
-    w1?: string
-    w2?: string
-    w3?: string
 }
 
-export function ArticleIndexPrimary({ text1, text2, text3, w1, w2, w3 }:ArticleIndexPrimaryProps) {
+export function ArticleIndexPrimary({ text1, text2, text3 }:ArticleIndexPrimaryProps) {
     return(
         <Stack
+        // bg={"blue"}
             as="article"
-            paddingX={12}
             justifyContent={"space-around"}
+            alignItems={[
+                "center",
+                "center",
+                "center",
+                "center",
+                "flex-start",
+                "flex-start",
+                "flex-start"
+            ]}
             height={"70%"}
+            paddingTop={20}
+            spacing={10}
+            paddingBottom={5}
+            paddingLeft={[0,0,0,0,10,10,10]}
         >
-            <TextIndex text={text1} size={"24px"} color={"offWhite"} w={w1} />
-            <TextIndex text={text2} size={"40px"} color={"offWhite"} w={w2} />
-            <TextIndex text={text3} size={"32px"} color={"offWhite"} w={w3}/>
+            <TextIndexPrimary text={text1} size={"24px"}/>
+            <TextIndexPrimary text={text2} size={"40px"}/>
+            <TextIndexPrimary text={text3} size={"32px"}/>
         </Stack>
     )
 }
@@ -100,7 +110,17 @@ export function ArticleIndexTerciary() {
                 ]}
             >
                 <SectionIndexTerciaryLeft></SectionIndexTerciaryLeft>
-                <Image src={"/index_3.png"} alt={""} width={378} height={474} w="30%"/>
+                <Stack width={[
+                    "80%",
+                    "80%",
+                    "80%",
+                    "60%",
+                    "40%",
+                    "30%",
+                    "30%"
+                ]}>
+                    <Image src={"/index_3.png"} alt={""} width={378} height={474} py="5"/>
+                </Stack>
                 <SectionIndexTerciaryRight></SectionIndexTerciaryRight>
             </Flex>
         </Stack>
@@ -180,6 +200,30 @@ export function ArticleShop({ title, color, colorCard, src1, alt1, titleItem1, p
                 <CardShop src={src3} alt={alt3} width={width3} height={height3} title={titleItem3} text={price3} color={colorCard} w={w3}></CardShop>
             </Flex>
             
+        </Stack>
+    )
+}
+
+interface ArticleContatoPrimaryProps {
+    text1: string
+    text2: string
+    text3: string
+}
+
+export function ArticleContatoPrimary({ text1, text2, text3 }:ArticleContatoPrimaryProps) {
+    return(
+        <Stack
+            as="article"
+            justifyContent={"space-around"}
+            alignItems={"center"}
+            height={"70%"}
+            paddingTop={20}
+            spacing={10}
+            paddingBottom={5}
+        >
+            <TextIndex text={text1} size={"24px"} color={"offWhite"}/>
+            <TextIndex text={text2} size={"40px"} color={"offWhite"}/>
+            <TextIndex text={text3} size={"32px"} color={"offWhite"}/>
         </Stack>
     )
 }

@@ -59,6 +59,7 @@ export function ButtonLogin({ title, w, children }: ButtonLoginProps) {
             w={w}
             paddingY={2}
             type='submit'
+            minWidth={"100px"}
         >
             <Link
                 as={NextLink}
@@ -66,7 +67,7 @@ export function ButtonLogin({ title, w, children }: ButtonLoginProps) {
             >
                 <HStack justifyContent={"center"}>
                     {children}
-                    <TitleNavbar title={title} size={'32px'} />
+                    <TitleNavbar title={title} size={'28px'} />
                 </HStack>
             </Link >
         </Box >
@@ -92,6 +93,28 @@ export function ButtonMembro({ onOpen }: ButtonMembroProps) {
                     <TitleNavbar title={"Novo Membro"} size={'20px'} />
                 </HStack>
             </Box>
+        </Button>
+    )
+}
+
+interface ButtonSidebarProps {
+    href: string
+    title: string
+}
+
+export function ButtonSidebar({ href, title }: ButtonSidebarProps) {
+    return (
+        <Button
+            bg={"purple"}
+            width={"100%"}
+            paddingX={5}
+            paddingY={8}
+            borderRadius={"16px"}
+            marginBottom={2}
+        >
+            <Link as={NextLink} href={href} color='lilac'>
+                <TitleNavbar title={title} size={"28px"}/>
+            </Link>
         </Button>
     )
 }

@@ -5,7 +5,15 @@ export function TableMembros() {
     return (
         <TableContainer
             bg={"offWhite"}
-            width={"80%"}
+            width={{
+                base: "95%",
+                fold: "95%",
+                xs: "95%",
+                sm: "90%",
+                md: "90%",
+                lg: "80%",
+                xl: "80%"
+            }}
         >
             <Table variant='striped' color="purple">
                 <Thead bg={"purple"}>

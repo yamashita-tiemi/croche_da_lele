@@ -27,7 +27,7 @@ export function CardSection({ src, alt, title, width, height, w, id }: CardSecti
             justifyContent={"center"}
             spacing={10}
             width={[
-                "90%",
+                "95%",
                 "80%",
                 "80%",
                 "60%",
@@ -90,7 +90,7 @@ export function CardShop({ src, alt, title, text, width, height, color, w }: Car
             justifyContent={"center"}
             spacing={12}
             width={[
-                "90%",
+                "95%",
                 "80%",
                 "80%",
                 "60%",
