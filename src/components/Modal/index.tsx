@@ -1,9 +1,22 @@
-import React from "react"
-import { Button, FormControl, FormLabel, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalOverlay, useDisclosure } from "@chakra-ui/react"
+import React, { useEffect, useState } from "react"
+import { Button, FormControl, FormLabel, HStack, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalOverlay, useDisclosure } from "@chakra-ui/react"
 
 import { IconSocialCRUD } from "../Icons"
 import { TextIndex } from "../Text";
 import { ButtonMembro } from "../Button";
+
+
+const APIURL = "http://localhost:3001/membros";
+
+type Membro = {
+    userId: number,
+    id: number,
+    name: string,
+    email: string,
+    aniversario: string,
+    cargo: string,
+    completed: boolean,
+}
 
 
 export function ModalCRUD() {
@@ -122,6 +135,47 @@ export function ModalCreate() {
 
     const initialRef = React.useRef(null)
 
+    const [membros, setMembros] = useState<Membro[]>([])
+    const [novoMembro, setNovoMembro] = useState<Partial<Membro>>({})
+
+    const getMembros = async () => {
+        const response = await fetch(APIURL)
+        if (!response.ok) {
+            console.error("Nao ao carregar dados")
+        }
+        const data: Membro[] = await response.json()
+        setMembros(data)
+    }
+
+    useEffect(() => {
+        getMembros()
+    }, [])
+
+    const handleSubmit = async (event: React.FormEvent) => {
+        event.preventDefault()
+
+        const response = await fetch(APIURL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(novoMembro)
+        })
+        if (response.ok) {
+            alert("Membro criado com sucesso")
+            setNovoMembro({})
+            getMembros()
+        }
+        else {
+            console.error("Nao foi possivel criar novo membro")
+        }
+    }
+
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = event.target
+        setNovoMembro((prevMembro) => ({ ...prevMembro, [name]: value }))
+    }
+
     return (
         <>
             <ButtonMembro onOpen={onOpen}></ButtonMembro>
@@ -136,33 +190,53 @@ export function ModalCreate() {
                 <ModalContent>
                     <ModalCloseButton />
                     <ModalBody pb={6} pt={16}>
-                        <FormControl>
-                            <FormLabel>Nome</FormLabel>
-                            <Input type="text" ref={initialRef} placeholder='Digite o nome' />
-                        </FormControl>
-
-                        <FormControl mt={4}>
-                            <FormLabel>Cargo</FormLabel>
-                            <Input type="text" placeholder='Digite o cargo' />
-                        </FormControl>
-
-                        <FormControl mt={4}>
-                            <FormLabel>Email</FormLabel>
-                            <Input type="email" placeholder='Digite o email' />
-                        </FormControl>
-
-                        <FormControl mt={4}>
-                            <FormLabel>Aniversário</FormLabel>
-                            <Input type="date" placeholder='Digite o aniversario' />
-                        </FormControl>
+                        <form onSubmit={handleSubmit}>
+                            <FormControl>
+                                <FormLabel>Nome</FormLabel>
+                                <Input
+                                    ref={initialRef}
+                                    name="name"
+                                    type="text"
+                                    value={novoMembro.name || ""}
+                                    onChange={handleInputChange}
+                                    placeholder='Digite o nome'
+                                />
+                                <FormLabel>Cargo</FormLabel>
+                                <Input
+                                    name="cargo"
+                                    type="text"
+                                    value={novoMembro.cargo || ""}
+                                    onChange={handleInputChange}
+                                    placeholder='Digite o cargo'
+                                />
+                                <FormLabel>Email</FormLabel>
+                                <Input
+                                    name="email"
+                                    type="email"
+                                    value={novoMembro.email || ""}
+                                    onChange={handleInputChange}
+                                    placeholder='Digite o email'
+                                />
+                                <FormLabel>Aniversário</FormLabel>
+                                <Input
+                                    name="aniversario"
+                                    type="text"
+                                    value={novoMembro.aniversario || ""}
+                                    onChange={handleInputChange}
+                                    placeholder='Digite o aniversario'
+                                />
+                            </FormControl>
+                            <HStack
+                                justifyContent={"flex-end"}
+                                marginTop={10}
+                            >
+                                <Button type="submit" colorScheme='blue'>
+                                    Salvar
+                                </Button>
+                                <Button onClick={onClose}>Fechar</Button>
+                            </HStack>
+                        </form>
                     </ModalBody>
-
-                    <ModalFooter>
-                        <Button colorScheme='blue' mr={3}>
-                            Salvar
-                        </Button>
-                        <Button onClick={onClose}>Fechar</Button>
-                    </ModalFooter>
                 </ModalContent>
             </Modal>
         </>
