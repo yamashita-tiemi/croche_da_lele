@@ -1,5 +1,7 @@
+import NextLink from 'next/link'
+
 import { MdEmail, MdSupportAgent } from "react-icons/md";
-import { Accordion, Box, Flex, FormControl, FormLabel, HStack, Input, Stack } from "@chakra-ui/react";
+import { Accordion, Box, Flex, FormControl, FormLabel, Input, Link, Stack } from "@chakra-ui/react";
 
 import { TextIndex } from "../Text";
 import { ArticleContatoPrimary, ArticleIndexPrimary } from "../Article";
@@ -74,7 +76,6 @@ export function SectionIndexTerciaryLeft() {
             <TextIndex text={"Do conforto à moda"} size={"32px"} color={"offWhite"} />
 
             <Stack
-
                 spacing={5}
                 width={"100%"}
                 textAlign={[
@@ -109,10 +110,7 @@ export function SectionIndexTerciaryRight() {
     return (
         <Stack
             as="section"
-            // width={"30%"}
             spacing={14}
-            // textAlign={"end"}
-            // align={"flex-end"}
             width={[
                 "90%",
                 "90%",
@@ -194,7 +192,6 @@ export function SectionContatoSecondary() {
     return (
         <Flex
             as="section"
-            // spacing={0}
             minHeight={"710px"}
             alignItems={"center"}
             flexDirection={[
@@ -209,7 +206,6 @@ export function SectionContatoSecondary() {
         >
             <Stack
                 as="section"
-                // width={"60%"}
                 width={[
                     "90%",
                     "90%",
@@ -324,7 +320,9 @@ export function SectionLogin() {
                 alignItems={"center"}
                 justifyContent={"center"}
             >
+                <Link as={NextLink} href={"/"} display={"flex"} alignItems={"center"} justifyContent={"center"}>
                 <Image src={"/logo_redonda.png"} alt={""} width={300} height={300} w="10%" />
+                </Link>
             </Box>
             <FormControl
                 isRequired
