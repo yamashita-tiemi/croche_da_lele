@@ -51,26 +51,29 @@ interface ButtonLoginProps {
 
 export function ButtonLogin({ title, w, children }: ButtonLoginProps) {
     return (
-        <Box
-            as='button'
+        <Link
+            as={NextLink}
+            href={"/admin"}
+            backgroundColor={"turquesa"}
             borderRadius={"16px"}
-            bg='turquesa'
-            color='offWhite'
-            w={w}
-            paddingY={2}
+            color={"offWhite"}
+            width={w}
+            paddingY={3}
+            display={"flex"}
+            marginBottom={2}
             type='submit'
             minWidth={"100px"}
         >
-            <Link
-                as={NextLink}
-                href={'/admin'}
+            <Box
+                as='button'
+                width={"100%"}
             >
                 <HStack justifyContent={"center"}>
                     {children}
                     <TitleNavbar title={title} size={'28px'} />
                 </HStack>
-            </Link >
-        </Box >
+            </Box>
+        </Link>
     )
 }
 
@@ -104,17 +107,25 @@ interface ButtonSidebarProps {
 
 export function ButtonSidebar({ href, title }: ButtonSidebarProps) {
     return (
-        <Button
-            bg={"purple"}
+        <Link
+            as={NextLink}
+            href={href}
+            backgroundColor={"purple"}
+            borderRadius={"16px"}
+            color={"lilac"}
             width={"100%"}
             paddingX={5}
-            paddingY={8}
-            borderRadius={"16px"}
+            paddingY={5}
+            display={"flex"}
             marginBottom={2}
         >
-            <Link as={NextLink} href={href} color='lilac'>
-                <TitleNavbar title={title} size={"28px"}/>
-            </Link>
-        </Button>
+            <Box
+                as='button'
+                width={"100%"}
+            >
+
+                <TitleNavbar title={title} size={'28px'} />
+            </Box>
+        </Link>
     )
 }

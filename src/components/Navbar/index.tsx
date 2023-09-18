@@ -1,19 +1,20 @@
 import NextLink from 'next/link'
 import { GiHamburgerMenu } from "react-icons/gi";
-import { Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, HStack, Link, Stack, flexbox, useDisclosure } from "@chakra-ui/react"
+import { Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Flex, HStack, Link, Stack, flexbox, useDisclosure } from "@chakra-ui/react"
 
-import { Image, ImageNavbar1, ImageNavbar2 } from "../Image"
+import { ImageNavbar1, ImageNavbar2 } from "../Image"
 import { TitleNavbar } from "../Title"
 import { ButtonSidebar } from '../Button'
-import { Icon } from '../Icons'
+import { Icon, IconLogOut } from '../Icons'
 
 interface NavbarProps {
     login: string
     href: string
     children: any
+    children2?: any
 }
 
-export function Navbar({ login, href, children }: NavbarProps) {
+export function Navbar({ login, href, children, children2 }: NavbarProps) {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     return (
@@ -39,13 +40,13 @@ export function Navbar({ login, href, children }: NavbarProps) {
                 ]}
             >
                 <Link as={NextLink} href='/' color='lilac'>
-                    <TitleNavbar title={"Home"} size={"28px"}/>
+                    <TitleNavbar title={"Home"} size={"28px"} />
                 </Link>
                 <Link as={NextLink} href='/contato' color='lilac'>
-                    <TitleNavbar title={"Contato"} size={"28px"}/>
+                    <TitleNavbar title={"Contato"} size={"28px"} />
                 </Link>
                 <Link as={NextLink} href='/membros' color='lilac'>
-                    <TitleNavbar title={"Membros"} size={"28px"}/>
+                    <TitleNavbar title={"Membros"} size={"28px"} />
                 </Link>
             </Flex>
             <Flex
@@ -63,7 +64,7 @@ export function Navbar({ login, href, children }: NavbarProps) {
                 ]}
             >
                 <Link as={NextLink} href={href} color='lilac'>
-                    <TitleNavbar title={login} size={"28px"}/>
+                    <TitleNavbar title={login} size={"28px"} />
                 </Link>
                 {children}
             </Flex>
@@ -78,7 +79,7 @@ export function Navbar({ login, href, children }: NavbarProps) {
             ]}>
                 <Button colorScheme='teal' onClick={onOpen}>
                     <Icon width={''} colorBg={''} color={''}>
-                        <GiHamburgerMenu size={24}/>
+                        <GiHamburgerMenu size={24} />
                     </Icon>
                 </Button>
                 <Drawer
@@ -92,11 +93,14 @@ export function Navbar({ login, href, children }: NavbarProps) {
                         <DrawerHeader color={"purple"} fontSize={"28px"}>Crochê da Lelê</DrawerHeader>
 
                         <DrawerBody gap={10} marginTop={10}>
-                            <ButtonSidebar href={'/'} title={'Home'}/>
-                            <ButtonSidebar href={'/contato'} title={'Contato'}/>
-                            <ButtonSidebar href={'/membros'} title={'Membros'}/>
-                            <ButtonSidebar href={href} title={login}/>
+                            <ButtonSidebar href={'/'} title={'Home'} />
+                            <ButtonSidebar href={'/contato'} title={'Contato'} />
+                            <ButtonSidebar href={'/membros'} title={'Membros'} />
+                            <ButtonSidebar href={href} title={login} />
                         </DrawerBody>
+                        <DrawerFooter>
+                            {children2}
+                        </DrawerFooter>
                     </DrawerContent>
                 </Drawer>
             </Stack>

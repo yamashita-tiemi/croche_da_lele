@@ -38,10 +38,16 @@ export function IconShop() {
     )
 }
 
-export function IconLogOut() {
+interface IconLogOutProps {
+    size: number
+    bg: string
+    color: string
+}
+
+export function IconLogOut({ size, bg, color }:IconLogOutProps) {
     return (
-        <Icon width={"100px"} colorBg={"purple"} color={"offWhite"}>
-            <TbLogout size={40} />
+        <Icon width={"100px"} colorBg={bg} color={color}>
+            <TbLogout size={size} />
         </Icon>
     )
 }
