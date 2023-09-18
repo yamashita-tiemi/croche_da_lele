@@ -5,7 +5,7 @@ import { Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFoo
 import { ImageNavbar1, ImageNavbar2 } from "../Image"
 import { TitleNavbar } from "../Title"
 import { ButtonSidebar } from '../Button'
-import { Icon, IconLogOut } from '../Icons'
+import { Icon } from '../Icons'
 
 interface NavbarProps {
     login: string
@@ -78,7 +78,7 @@ export function Navbar({ login, href, children, children2 }: NavbarProps) {
                 "none"
             ]}>
                 <Button colorScheme='teal' onClick={onOpen}>
-                    <Icon width={''} colorBg={''} color={''}>
+                    <Icon width={''} colorBg={''} color={''} href={''}>
                         <GiHamburgerMenu size={24} />
                     </Icon>
                 </Button>

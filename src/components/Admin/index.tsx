@@ -282,12 +282,12 @@ export function TableAdmin({ getMembros, membros }:TableAdminProps) {
                                 <Td textAlign={"center"}>
                                     <HStack justifyContent={"center"}>
                                         <Button onClick={function () { handleOpenModalEdit(membro) }} bg={"none"}>
-                                            <Icon width={"40px"} colorBg={"#EAA800"} color={"offWhite"}>
+                                            <Icon width={"40px"} colorBg={"#EAA800"} color={"offWhite"} href={""}>
                                                 <BiSolidPencil size={28} />
                                             </Icon>
                                         </Button>
                                         <Button onClick={function () { handleOpenModalDelete(membro) }} bg={"none"}>
-                                            <Icon width={"40px"} colorBg={"#D00"} color={"offWhite"}>
+                                            <Icon width={"40px"} colorBg={"#D00"} color={"offWhite"} href={""}>
                                                 <FaTrash size={20} />
                                             </Icon>
                                         </Button>

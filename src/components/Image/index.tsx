@@ -1,5 +1,7 @@
-import { Stack } from "@chakra-ui/react";
+import NextLink from 'next/link'
 import NextImage from 'next/image';
+
+import { Link, Stack } from "@chakra-ui/react";
 
 interface ImageProps {
     src: string
@@ -8,9 +10,10 @@ interface ImageProps {
     height: number
     w?: string
     py?: string
+    mx?: string
 }
 
-export function Image({ src, alt, width, height, w, py }: ImageProps) {
+export function Image({ src, alt, width, height, w, py, mx }: ImageProps) {
     return (
         <Stack
             as="picture"
@@ -18,6 +21,7 @@ export function Image({ src, alt, width, height, w, py }: ImageProps) {
             align={"center"}
             minWidth={"80px"}
             paddingY={py}
+            marginX={mx}
         >
             <NextImage src={src} alt={alt} width={width} height={height} />
         </Stack>
@@ -53,11 +57,8 @@ interface ImageNavbar1Props {
 
 export function ImageNavbar1({ src, alt, width, height }: ImageNavbar1Props) {
     return (
-        <Stack
-            as="picture"
+        <Link as={NextLink} href="/"
             width={"20%"}
-            align={"center"}
-            minWidth={"200px"}
             display={[
                 "none",
                 "none",
@@ -68,8 +69,10 @@ export function ImageNavbar1({ src, alt, width, height }: ImageNavbar1Props) {
                 "flex"
             ]}
         >
-            <NextImage src={src} alt={alt} width={width} height={height} />
-        </Stack>
+            <Stack as="picture" align={"center"} minWidth={"200px"}>
+                <NextImage src={src} alt={alt} width={width} height={height} />
+            </Stack>
+        </Link>
     )
 }
 
@@ -82,22 +85,21 @@ interface ImageNavbar2Props {
 
 export function ImageNavbar2({ src, alt, width, height }: ImageNavbar2Props) {
     return (
-        <Stack
-            as="picture"
-            width={"10%"}
-            align={"center"}
-            minWidth={"70px"}
-            display={[
-                "flex",
-                "flex",
-                "flex",
-                "flex",
-                "none",
-                "none",
-                "none"
-            ]}
+        <Link as={NextLink} href="/"
+        width={"10%"}
+        display={[
+            "flex",
+            "flex",
+            "flex",
+            "flex",
+            "none",
+            "none",
+            "none"
+        ]}
         >
-            <NextImage src={src} alt={alt} width={width} height={height} />
-        </Stack>
+            <Stack as="picture" align={"center"} minWidth={"70px"}>
+                <NextImage src={src} alt={alt} width={width} height={height} />
+            </Stack>
+        </Link>
     )
 }

@@ -200,8 +200,22 @@
       "id": 29,
       "name": "Victoria Tiemi Ferreira Yamashita",
       "email": "victoria.tiemi@codejr.com.br",
-      "aniversario": "18/10/2000",
+      "aniversario": "18/10",
       "cargo": "assessor"
+    },
+    {
+      "name": "debj",
+      "cargo": "ndnxkn",
+      "email": "teste@gmail.com",
+      "id": 30,
+      "aniversario": "2023-09-05"
+    },
+    {
+      "name": "jed",
+      "email": "t@gmail.com",
+      "aniversario": "19/01",
+      "cargo": "wds",
+      "id": 31
     }
   ]
 }

@@ -273,7 +273,7 @@ export function SectionContatoSecondary() {
                     p={4}
                     alignItems={"center"}
                 >
-                    <Icon width={"100px"} colorBg={"purple"} color={"offWhite"} margin={"auto"} marginBottom={"25px"}>
+                    <Icon width={"100px"} colorBg={"purple"} color={"offWhite"} margin={"auto"} marginBottom={"25px"} href={"https://web.whatsapp.com/"} isExternal>
                         <MdSupportAgent size={80} />
                     </Icon>
                     <CardContato title={"Telefone"} text={"(XX) X XXXX-XXXX"} obs="09h às 18h"></CardContato>
@@ -284,7 +284,7 @@ export function SectionContatoSecondary() {
                     w={"80%"}
                     p={4}
                 >
-                    <Icon width={"100px"} colorBg={"purple"} color={"offWhite"} margin={"auto"} marginBottom={"25px"}>
+                    <Icon width={"100px"} colorBg={"purple"} color={"offWhite"} margin={"auto"} marginBottom={"25px"} href={"https://www.google.com/intl/pt-BR/gmail/about/"} isExternal>
                         <MdEmail size={65} />
                     </Icon>
                     <CardContato title={"Email"} text={"croche_da_lele@gmail.com"}></CardContato>

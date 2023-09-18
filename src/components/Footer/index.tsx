@@ -1,4 +1,6 @@
-import { Flex, HStack, Stack } from "@chakra-ui/react";
+import NextLink from 'next/link'
+
+import { Flex, Link, Stack } from "@chakra-ui/react";
 import { Image } from "../Image";
 import { TitleFooter } from "../Title";
 import { TextIndex } from "../Text";
@@ -13,8 +15,7 @@ export function Footer() {
             paddingX={4}
             justifyContent={"space-between"}
             marginTop={12}
-            paddingBottom={8}
-            paddingTop={4}
+            paddingY={8}
             flexDirection={[
                 "column",
                 "column",
@@ -27,7 +28,9 @@ export function Footer() {
             alignItems={"center"}
             gap={10}
         >
-            <Image src={"/logo_redonda.png"} alt={"Crochê da Lelê"} width={491} height={125} w="10%" />
+            <Link as={NextLink} href={"/"} display={"flex"} alignItems={"center"} justifyContent={"center"}>
+                <Image src={"/logo_redonda.png"} alt={"Crochê da Lelê"} width={491} height={125} w="55%" mx="2%" />
+            </Link>
             <Stack
                 spacing={5}
                 width={[
@@ -63,7 +66,6 @@ export function Footer() {
             </Stack>
             <Stack
                 spacing={5}
-                textAlign={"center"}
                 width={[
                     "90%",
                     "90%",
@@ -81,6 +83,15 @@ export function Footer() {
                     "center",
                     "flex-start",
                     "flex-start",
+                ]}
+                textAlign={[
+                    "center",
+                    "center",
+                    "center",
+                    "center",
+                    "center",
+                    "start",
+                    "start",
                 ]}
             >
                 <TitleFooter title={"Contato"}></TitleFooter>
