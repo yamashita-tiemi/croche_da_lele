@@ -318,33 +318,37 @@ export function TableAdmin({ getMembros, membros }:TableAdminProps) {
                                     ref={initialRef}
                                     name="name"
                                     type="text"
-                                    value={novoMembro.name || membroModal.name}
+                                    value={novoMembro.name}
                                     onChange={handleInputChange}
                                     placeholder='Digite o nome'
+                                    defaultValue={membroModal.name}
                                 />
                                 <FormLabel>Cargo</FormLabel>
                                 <Input
                                     name="cargo"
                                     type="text"
-                                    value={novoMembro.cargo || membroModal.cargo}
+                                    value={novoMembro.cargo}
                                     onChange={handleInputChange}
                                     placeholder='Digite o cargo'
+                                    defaultValue={membroModal.cargo}
                                 />
                                 <FormLabel>Email</FormLabel>
                                 <Input
                                     name="email"
                                     type="email"
-                                    value={novoMembro.email || membroModal.email}
+                                    value={novoMembro.email}
                                     onChange={handleInputChange}
                                     placeholder='Digite o email'
+                                    defaultValue={membroModal.email}
                                 />
                                 <FormLabel>Aniversário</FormLabel>
                                 <Input
                                     name="aniversario"
                                     type="text"
-                                    value={novoMembro.aniversario || membroModal.aniversario}
+                                    value={novoMembro.aniversario}
                                     onChange={handleInputChange}
                                     placeholder='Digite o aniversario'
+                                    defaultValue={membroModal.aniversario}
                                 />
                             </FormControl>
                             <HStack
