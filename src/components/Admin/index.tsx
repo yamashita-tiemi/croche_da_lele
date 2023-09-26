@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react"
-import { Button, FormControl, FormLabel, HStack, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalOverlay, Stack, Table, TableContainer, Tbody, Td, Th, Thead, Tr, useDisclosure } from "@chakra-ui/react"
+import { Button, FormControl, FormLabel, HStack, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalOverlay, Stack, Table, TableContainer, Tbody, Td, Th, Thead, Tr, useDisclosure, useToast } from "@chakra-ui/react"
+import { BiSolidPencil } from "react-icons/bi";
+import { FaTrash } from "react-icons/fa";
 
 import { ButtonMembro } from "../Button";
 import { TitleSection } from "../Title";
-import { BiSolidPencil } from "react-icons/bi";
-import { FaTrash } from "react-icons/fa";
 import { TextIndex } from "../Text";
 import { Icon } from "../Icons";
 
@@ -30,6 +30,18 @@ export function SectionAdmin() {
         }
         const data: Membro[] = await response.json();
         setMembros(data);
+    }
+
+    const toast = useToast();
+
+    const showToast = (text: string, status: any) => {
+        toast({
+            position: "bottom",
+            title: text,
+            status: status,
+            duration: 5000,
+            isClosable: true,
+        })
     }
 
     return (
@@ -67,10 +79,22 @@ interface ModalCreateProps {
     getMembros: Function
 }
 
-export function ModalCreate({getMembros}:ModalCreateProps) {
+export function ModalCreate({ getMembros }: ModalCreateProps) {
     const initialRef = React.useRef(null)
     const { isOpen: isOpen, onOpen: onOpen, onClose: onClose } = useDisclosure()
     const [novoMembro, setNovoMembro] = useState<Partial<Membro>>({})
+
+    const toast = useToast();
+
+    const showToast = (text: string, status: any) => {
+        toast({
+            position: "bottom",
+            title: text,
+            status: status,
+            duration: 5000,
+            isClosable: true,
+        })
+    }
 
     useEffect(() => {
         getMembros();
@@ -88,13 +112,14 @@ export function ModalCreate({getMembros}:ModalCreateProps) {
         });
 
         if (response.ok) {
-            alert("Membro criado com sucesso");
+            showToast("Membro criado com sucesso", "success");
             setNovoMembro({});
             getMembros();
             onClose();
         }
         else {
             console.error("Nao foi possivel criar novo membro")
+            showToast("Não foi possivel criar novo membro", "error");
         }
     }
 
@@ -179,7 +204,7 @@ interface TableAdminProps {
     getMembros: Function
 }
 
-export function TableAdmin({ getMembros, membros }:TableAdminProps) {
+export function TableAdmin({ getMembros, membros }: TableAdminProps) {
     const { isOpen: isOpenEdit, onOpen: onOpenEdit, onClose: onCloseEdit } = useDisclosure()
     const { isOpen: isOpenDelete, onOpen: onOpenDelete, onClose: onCloseDelete } = useDisclosure()
 
@@ -189,6 +214,18 @@ export function TableAdmin({ getMembros, membros }:TableAdminProps) {
 
     const [novoMembro, setNovoMembro] = useState<Partial<Membro>>({})
     const [editMembroId, setEditMembroId] = useState<number | null>(null)
+
+    const toast = useToast();
+
+    const showToast = (text: string, status: any) => {
+        toast({
+            position: "bottom",
+            title: text,
+            status: status,
+            duration: 5000,
+            isClosable: true,
+        })
+    }
 
     useEffect(() => {
         getMembros();
@@ -214,12 +251,12 @@ export function TableAdmin({ getMembros, membros }:TableAdminProps) {
         });
 
         if (response.ok) {
-            alert("Membro excluido com sucesso");
+            showToast("Membro excluido com sucesso", "success");
             getMembros();
             onCloseDelete();
         }
         else {
-            alert("Erro ao tentar deletar");
+            showToast("Não foi possivel deletar membro", "error");
         }
     }
 
@@ -235,14 +272,14 @@ export function TableAdmin({ getMembros, membros }:TableAdminProps) {
         });
 
         if (response.ok) {
-            alert("Membro editado com sucesso");
+            showToast("Membro editado com sucesso", "success");
             setEditMembroId(null);
             setNovoMembro({});
             getMembros();
             onCloseEdit();
         }
         else {
-            alert("Erro ao tentar editar");
+            showToast("Não foi possivel editar membro", "error");
         }
     }
 
@@ -311,17 +348,18 @@ export function TableAdmin({ getMembros, membros }:TableAdminProps) {
                 <ModalContent>
                     <ModalCloseButton />
                     <ModalBody pb={6} pt={16}>
-                        <form>
-                            <FormControl>
+                        <form onSubmit={function (event) { event.preventDefault();handleSaveEdit(membroModal.id || 0)}}>
+                            <FormControl isRequired>
                                 <FormLabel>Nome</FormLabel>
                                 <Input
                                     ref={initialRef}
                                     name="name"
                                     type="text"
                                     value={novoMembro.name}
+                                    defaultValue={membroModal.name}
                                     onChange={handleInputChange}
                                     placeholder='Digite o nome'
-                                    defaultValue={membroModal.name}
+                                    isRequired
                                 />
                                 <FormLabel>Cargo</FormLabel>
                                 <Input
@@ -331,6 +369,7 @@ export function TableAdmin({ getMembros, membros }:TableAdminProps) {
                                     onChange={handleInputChange}
                                     placeholder='Digite o cargo'
                                     defaultValue={membroModal.cargo}
+                                    isRequired
                                 />
                                 <FormLabel>Email</FormLabel>
                                 <Input
@@ -340,6 +379,7 @@ export function TableAdmin({ getMembros, membros }:TableAdminProps) {
                                     onChange={handleInputChange}
                                     placeholder='Digite o email'
                                     defaultValue={membroModal.email}
+                                    isRequired
                                 />
                                 <FormLabel>Aniversário</FormLabel>
                                 <Input
@@ -349,13 +389,14 @@ export function TableAdmin({ getMembros, membros }:TableAdminProps) {
                                     onChange={handleInputChange}
                                     placeholder='Digite o aniversario'
                                     defaultValue={membroModal.aniversario}
+                                    isRequired
                                 />
                             </FormControl>
                             <HStack
                                 justifyContent={"flex-end"}
                                 marginTop={10}
                             >
-                                <Button type="submit" onClick={function (event) { event.preventDefault(); handleSaveEdit(membroModal.id || 0) }} colorScheme='blue'>
+                                <Button type="submit" colorScheme='blue'>
                                     Salvar
                                 </Button>
                                 <Button onClick={onCloseEdit}>Fechar</Button>
